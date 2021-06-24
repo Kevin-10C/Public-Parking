@@ -15,21 +15,17 @@ public class Ticket {
     private int code;
     private String inspect;
 
+    @Override
+    public String toString() {
+        return "Ticket{" + "price=" + price + ", code=" + code + ", inspect=" + inspect + '}';
+    }
+
     public Ticket(double price, int code, String inspect) {
         this.price = price;
         this.code = code;
         this.inspect = inspect;
     }
 
-    public Ticket() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String toString() {
-        return "Ticket{" + "price=" + price + ", code=" + code + ", inspect=" + inspect + '}';
-    }
-        
     /**
      * @return the price
      */
@@ -71,7 +67,5 @@ public class Ticket {
     public void setInspect(String inspect) {
         this.inspect = inspect;
     }
-    
-    
-    
+
 }

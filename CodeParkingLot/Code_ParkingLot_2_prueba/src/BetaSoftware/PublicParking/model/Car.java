@@ -11,41 +11,19 @@ package BetaSoftware.PublicParking.model;
  */
 public class Car {
     
-    private int type;
     private String mark;
     private String licensePlate;
     private String color;
-    private String ob;
-
-    public Car(int type, String mark, String licensePlate, String color, String ob) {
-        this.type = type;
-        this.mark = mark;
-        this.licensePlate = licensePlate;
-        this.color = color;
-        this.ob = ob;
-    }
-
-    public Car() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     @Override
     public String toString() {
-        return "Car{" + "type=" + getType() + ", mark=" + getMark() + ", licensePlate=" + getLicensePlate() + ", color=" + getColor() + ", ob=" + getOb() + '}';
-    }
-    
-    /**
-     * @return the type
-     */
-    public int getType() {
-        return type;
+        return "" + "mark=" + mark + ", licensePlate=" + licensePlate + ", color=" + color;
     }
 
-    /**
-     * @param type the type to set
-     */
-    public void setType(int type) {
-        this.type = type;
+    public Car(String mark, String licensePlate, String color) {
+        this.mark = mark;
+        this.licensePlate = licensePlate;
+        this.color = color;
     }
 
     /**
@@ -90,20 +68,4 @@ public class Car {
         this.color = color;
     }
 
-    /**
-     * @return the ob
-     */
-    public String getOb() {
-        return ob;
-    }
-
-    /**
-     * @param ob the ob to set
-     */
-    public void setOb(String ob) {
-        this.ob = ob;
-    }
-    
-    
-    
 }

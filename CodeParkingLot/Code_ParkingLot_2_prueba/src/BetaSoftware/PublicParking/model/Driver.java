@@ -13,11 +13,11 @@ public class Driver {
     
     private String name;
     private int age;
-    private char gender;
+    private String gender;
     private String preference;
     private int ticket;
 
-    public Driver(String name, int age, char gender, String preference, int ticket) {
+    public Driver(String name, int age, String gender, String preference, int ticket) {
         this.name = name;
         this.age = age;
         this.gender = gender;
@@ -25,13 +25,9 @@ public class Driver {
         this.ticket = ticket;
     }
 
-    public Driver() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     @Override
     public String toString() {
-        return "Driver{" + "name=" + name + ", age=" + age + ", gender=" + gender + ", preference=" + preference + ", ticket=" + ticket + '}';
+        return "" + "name=" + name + ", age=" + age + ", gender=" + gender + ", preference=" + preference + ", ticket=" + ticket + '}';
     }
     
     /**
@@ -65,14 +61,14 @@ public class Driver {
     /**
      * @return the gender
      */
-    public char getGender() {
+    public String getGender() {
         return gender;
     }
 
     /**
      * @param gender the gender to set
      */
-    public void setGender(char gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
