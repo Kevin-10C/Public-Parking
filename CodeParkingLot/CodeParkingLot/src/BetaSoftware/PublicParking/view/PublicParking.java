@@ -18,7 +18,16 @@ public class PublicParking {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Scanner entry = new Scanner(System.in);
         Car car;
+        int type;
+        String mark;
+        String licensePlate;
+        String color;
+        String name;
+        int age;
+        String gender;
+        String preference;
         car = new Car ();
         Driver driver = new Driver ();
         Observation ob = new Observation ();
@@ -33,8 +42,39 @@ public class PublicParking {
         System.out.println("option 3: SUV");
         System.out.println("option 4: motorcycle");
         
+        Car cars[] = new Car[5];
+        
+    for(int i=0;i<5;i++){
+        System.out.println("\nEnter the car information[" + (i+1) + "]:");
+        
+        System.out.print("Enter brand: ");
+        mark = entry.next();
+        
+        System.out.print("Enter the plate: ");
+        licensePlate = entry.next();
+        
+        System.out.print("Enter the color: ");
+        color = entry.next();
+        
+        System.out.println("\nEnter customer information:");
+        
+        System.out.print("Enter name: ");
+        name = entry.next();
+        
+        System.out.print("Enter age: ");
+        age = entry.nextInt();
+        
+        System.out.print("Enter gender: ");
+        gender = entry.next();
+        
+        System.out.print("Enter preference: ");
+        preference = entry.next();
+        
+    }
+        
         int option = sc. nextInt ();
-        type(option);                
+        type(option); 
+       
         }                      
 
     private static void type(int option) {
@@ -56,5 +96,5 @@ public class PublicParking {
        System.out.println("The option is invalide");
     } 
        
-    }; 
+    }
 }
