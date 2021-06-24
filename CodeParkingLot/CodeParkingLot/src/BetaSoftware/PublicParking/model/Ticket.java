@@ -15,6 +15,17 @@ public class Ticket {
     private int code;
     private String inspect;
 
+    public Ticket(double price, int code, String inspect) {
+        this.price = price;
+        this.code = code;
+        this.inspect = inspect;
+    }
+
+    @Override
+    public String toString() {
+        return "Ticket{" + "price=" + price + ", code=" + code + ", inspect=" + inspect + '}';
+    }
+        
     /**
      * @return the price
      */

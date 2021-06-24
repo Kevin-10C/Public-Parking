@@ -15,6 +15,17 @@ public class Observation {
     private boolean rupture;
     private boolean collision;
 
+    public Observation(boolean scratches, boolean rupture, boolean collision) {
+        this.scratches = scratches;
+        this.rupture = rupture;
+        this.collision = collision;
+    }
+
+    @Override
+    public String toString() {
+        return "Observation{" + "scratches=" + scratches + ", rupture=" + rupture + ", collision=" + collision + '}';
+    }
+     
     /**
      * @return the scratches
      */

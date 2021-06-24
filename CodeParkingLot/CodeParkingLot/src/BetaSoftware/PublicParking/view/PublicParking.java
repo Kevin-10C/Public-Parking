@@ -5,6 +5,8 @@
  */
 package BetaSoftware.PublicParking.view;
 
+import BetaSoftware.PublicParking.model.Car;
+
 /**
  *
  * @author Eliana Cuaspa Beta-SoftwareTech ESPE-DCCO
@@ -15,7 +17,14 @@ public class PublicParking {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Car car;
+        int type;
+        String mark;
+        String licensePlate;
+        String color;
+        String ob;
+       
+        
     }
     
 }

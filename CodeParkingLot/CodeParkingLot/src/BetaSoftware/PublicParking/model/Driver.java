@@ -17,6 +17,19 @@ public class Driver {
     private String preference;
     private int ticket;
 
+    public Driver(String name, int age, char gender, String preference, int ticket) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.preference = preference;
+        this.ticket = ticket;
+    }
+
+    @Override
+    public String toString() {
+        return "Driver{" + "name=" + name + ", age=" + age + ", gender=" + gender + ", preference=" + preference + ", ticket=" + ticket + '}';
+    }
+    
     /**
      * @return the name
      */

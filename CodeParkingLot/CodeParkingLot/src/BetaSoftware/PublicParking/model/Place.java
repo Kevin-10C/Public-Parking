@@ -15,6 +15,17 @@ public class Place {
     private String street;
     private double distance;
 
+    public Place(double area, String street, double distance) {
+        this.area = area;
+        this.street = street;
+        this.distance = distance;
+    }
+
+    @Override
+    public String toString() {
+        return "Place{" + "area=" + area + ", street=" + street + ", distance=" + distance + '}';
+    }
+        
     /**
      * @return the area
      */

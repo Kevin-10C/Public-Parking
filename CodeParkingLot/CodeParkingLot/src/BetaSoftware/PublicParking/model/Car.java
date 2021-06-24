@@ -17,8 +17,18 @@ public class Car {
     private String color;
     private String ob;
 
+    public Car(int type, String mark, String licensePlate, String color, String ob) {
+        this.type = type;
+        this.mark = mark;
+        this.licensePlate = licensePlate;
+        this.color = color;
+        this.ob = ob;
+    }
 
-
+    @Override
+    public String toString() {
+        return "Car{" + "type=" + getType() + ", mark=" + getMark() + ", licensePlate=" + getLicensePlate() + ", color=" + getColor() + ", ob=" + getOb() + '}';
+    }
     
     /**
      * @return the type
