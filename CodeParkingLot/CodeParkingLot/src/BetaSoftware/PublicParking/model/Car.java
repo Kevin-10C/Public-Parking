@@ -25,6 +25,10 @@ public class Car {
         this.ob = ob;
     }
 
+    public Car() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     @Override
     public String toString() {
         return "Car{" + "type=" + getType() + ", mark=" + getMark() + ", licensePlate=" + getLicensePlate() + ", color=" + getColor() + ", ob=" + getOb() + '}';

@@ -21,6 +21,10 @@ public class Observation {
         this.collision = collision;
     }
 
+    public Observation() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     @Override
     public String toString() {
         return "Observation{" + "scratches=" + scratches + ", rupture=" + rupture + ", collision=" + collision + '}';

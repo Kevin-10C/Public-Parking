@@ -21,6 +21,10 @@ public class Place {
         this.distance = distance;
     }
 
+    public Place() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     @Override
     public String toString() {
         return "Place{" + "area=" + area + ", street=" + street + ", distance=" + distance + '}';

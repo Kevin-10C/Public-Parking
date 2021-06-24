@@ -25,6 +25,10 @@ public class Driver {
         this.ticket = ticket;
     }
 
+    public Driver() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     @Override
     public String toString() {
         return "Driver{" + "name=" + name + ", age=" + age + ", gender=" + gender + ", preference=" + preference + ", ticket=" + ticket + '}';
