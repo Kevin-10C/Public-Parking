@@ -40,9 +40,9 @@ public class PublicParking {
         String dateStop = null ;
         Date d1 = null;
         Date d2 = null;
-        String YN1;
-        String YN2;
-        String YN3;
+        String YN1 = null;
+        String YN2 = null;
+        String YN3 = null;
         SimpleDateFormat format = new SimpleDateFormat("HH:mm");  
         Car cars[] = new Car[1];
         Driver drivers[] = new Driver[1];
@@ -60,7 +60,7 @@ public class PublicParking {
         System.out.print("Enter option: ");
         type = entry.nextInt();
         
-        System.out.print("\nEnter brand: ");
+        System.out.print("\nEnter Mark : ");
         mark = entry.next();
         
         System.out.print("Enter the plate: ");
@@ -89,6 +89,18 @@ public class PublicParking {
         System.out.print("Ingrese la hora de salida: ");
         dateStop = entry.next();
        
+        System.out.println("\nDoes your car have any scratches?");
+            System.out.print("Enter Y/N: ");
+            YN1 = entry.next();
+            
+            System.out.println("\nDoes your car have any rupture?");
+            System.out.print("Enter Y/N: ");
+            YN2 = entry.next();
+            
+            System.out.println("\nDoes your car have any collision?");
+            System.out.print("Enter Y/N: ");
+            YN3 = entry.next();
+            
         cars[i] = new Car(mark, licensePlate, color);
         drivers[i] = new Driver(name, age, gender, preference, ticket);
         observations[i] = new Observation(scratches, rupture, collision);
@@ -110,24 +122,10 @@ public class PublicParking {
         if (type == 4){
             System.out.println("\nYour vehicle is a motorcycle");
            }
-        
-            System.out.println("\nDoes your car have any scratches?");
-            System.out.print("Enter Y/N: ");
-            YN1 = entry.next();
-            
-            System.out.println("\nDoes your car have any rupture?");
-            System.out.print("Enter Y/N: ");
-            YN2 = entry.next();
-            
-            System.out.println("\nDoes your car have any collision?");
-            System.out.print("Enter Y/N: ");
-            YN3 = entry.next();
-            
+                
         System.out.println("The characteristics of your vehicle are: " + cars[i]);
         System.out.println("\nYour information is " + drivers[i]);
-        System.out.println("Scratches: " + YN1);
-        System.out.println("Rupture: " + YN2); 
-        System.out.println("Collision: " + YN3); 
+        System.out.println("your observation are: Scratches " + YN1 + "Rupture" + YN2 + "Collision" + YN3 );
         try {
             d1 = format.parse(dateStart);
             d2 = format.parse(dateStop);
