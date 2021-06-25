@@ -5,6 +5,8 @@
  */
 package BetaSoftware.PublicParking.view;
 import BetaSoftware.PublicParking.model.*;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -41,6 +43,10 @@ public class PublicParking {
         Date d1 = null;
         Date d2 = null;
         int street = 0;
+        String jsonCar;
+        String jsonDriver;
+        String jsonObservation;
+        String jsonTicket;
      
              
         SimpleDateFormat format = new SimpleDateFormat("HH:mm");  
@@ -48,6 +54,9 @@ public class PublicParking {
         Driver drivers[] = new Driver[1];
         Observation observations[] = new Observation[1];
         Ticket tickets[] = new Ticket[1];
+        GsonBuilder gsonBuilder = new GsonBuilder ();
+        Gson gson = gsonBuilder.create ();
+        
         
     for(int i=0;i<1;i++){
         
@@ -149,16 +158,16 @@ public class PublicParking {
 
         
         if (street ==1){
-            System.out.println("The position of your automobile is: north 50m of the entry, Martin Street"  );  
+            System.out.println("The position of your automobile is: North 50m of the entry, Martin Street"  );  
         }
         if (street ==2){
-            System.out.println("The position of your automobile is: south 20m of the entry,Las moras Street");
+            System.out.println("The position of your automobile is: South 20m of the entry,Las moras Street");
         }
         if (street ==3) {
-            System.out.println("The position of your automobile is: east 10m of the entry, Guayacanes Street");
+            System.out.println("The position of your automobile is: East 10m of the entry, Guayacanes Street");
         }
         if (street ==4){
-            System.out.println("The position of your automobile is: west 25m of the entry, Cabal Street ");
+            System.out.println("The position of your automobile is: West 25m of the entry, Cabal Street ");
         }
          
 
@@ -166,23 +175,44 @@ public class PublicParking {
         System.out.println("The observations of your vehicle are: " + observations[i]);
         System.out.println("\nYour information is " + drivers[i]);
         System.out.println("Ticket: " + tickets[i]);
-      //System.out.println("your observation are: Scratches " + YN1 + "Rupture" + YN2 + "Collision" + YN3 );
-        
+        jsonCar = gson.toJson(cars[i]);        
+        jsonDriver = gson.toJson(drivers[i]);
+        jsonObservation = gson.toJson(observations[i]);
+        jsonTicket = gson.toJson(tickets[i]);
+        Car car2;
+        car2 = gson.fromJson(jsonCar, Car.class);
+            System.out.println("mark"+car2.getMark());
+            System.out.println("color"+car2.getColor());
+            System.out.println("licenseplate"+car2.getLicensePlate());
+        Driver driver2;
+        driver2 = gson.fromJson(jsonDriver, Driver.class);
+            System.out.println("gender"+driver2.getGender());
+            System.out.println("name"+driver2.getName());
+            System.out.println("preference"+driver2.getPreference());
+            System.out.println("age"+driver2.getAge());
+        Observation observation2;
+        observation2 = gson.fromJson(jsonObservation,Observation.class);
+            System.out.println("collision"+observation2.isCollision());
+            System.out.println("rupture"+observation2.isRupture());
+            System.out.println("scratches"+observation2.isScratches());
+        Ticket ticket2;
+        ticket2 = gson.fromJson(jsonTicket, Ticket.class);
+            System.out.println("check in"+ticket2.getDateStar());
+            System.out.println("departure time"+ticket2.getDateStop());
+            System.out.println("code"+ticket2.getCode());
+            System.out.println("price"+ticket2.getPrice());
+
           try {
             d1 = format.parse(dateStart);
             d2 = format.parse(dateStop);
         }catch (ParseException e) {
     }    
         
-        long diff = d2.getTime() - d1.getTime();
-      //long diffSeconds = diff / 1000;         
-        long diffMinutes = diff / (60 * 1000);         
-      //  long diffHours = diff / (60 * 60 * 1000);                   
-      //System.out.println("Time in seconds: " + diffSeconds + " seconds."); 
+        long diff = d2.getTime() - d1.getTime();       
+        long diffMinutes = diff / (60 * 1000);                             
         System.out.println("Su vehiculo estuvo en el parqueadero durante " + diffMinutes 
                 + " minutos y tiene que pagar un total de " + price + " dolares");
-      //System.out.println("\nTime in minutes: " + diffMinutes);         
-      //System.out.println("Time in hours: " + diffHours + " hours.");  
+  
       
         }
        
