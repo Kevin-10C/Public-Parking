@@ -26,6 +26,8 @@ public class PublicParking {
         String licensePlate;
         String color;
         String name;
+        double price = 0;
+        int code;
         int age;
         String gender;
         String preference;
@@ -45,13 +47,14 @@ public class PublicParking {
         Car cars[] = new Car[1];
         Driver drivers[] = new Driver[1];
         Observation observations[] = new Observation[1];
+        Ticket tickets[] = new Ticket[1];
         
     for(int i=0;i<1;i++){
-        System.out.println("\nEnter the car information[" + (i+1) + "]:");
-        ticket=(i+1);
         
         ticket = (i+1);
-        
+        code = (i+1);
+        System.out.println("\nEnter the car information[" + (i+1) + "]:");
+         
         System.out.println("\nSelect of the vehicle:");
         System.out.println("option 0: truck");
         System.out.println("option 1: pickup truck ");
@@ -61,7 +64,6 @@ public class PublicParking {
         System.out.print("Enter option: ");
         type = entry.nextInt();
         
-        
         System.out.print("\nEnter Mark : ");
         mark = entry.next();
         
@@ -70,6 +72,18 @@ public class PublicParking {
         
         System.out.print("Enter the color: ");
         color = entry.next();
+        
+        System.out.println("\nDoes your car have any scratches?");
+        System.out.print("Enter true/false: ");
+        scratches = entry.nextBoolean();
+            
+        System.out.println("\nDoes your car have any rupture?");
+        System.out.print("Enter true/false: ");
+        rupture = entry.nextBoolean();
+            
+        System.out.println("\nDoes your car have any collision?");
+        System.out.print("Enter true/false: ");
+        collision = entry.nextBoolean();
         
         System.out.println("\nEnter customer information:");
         
@@ -84,14 +98,8 @@ public class PublicParking {
         
         System.out.print("Enter preference: ");
         preference = entry.next();
-        
-        System.out.print("Enter check in time:('HH:mm') ");
-        dateStart = entry.next();
-   
-        System.out.print("Enter departure time:('HH:mm') ");
-        dateStop = entry.next();
-        
-        System.out.println("Select location:");
+         
+        System.out.println("\nSelect location:");
         System.out.println("Position 1 : North 50m of the entry, Martin Street");
         System.out.println("Position 2 : South 20m of the entry,Las moras Street");
         System.out.println("Position 3 : East 10m of the entry, Guayacanes Street");
@@ -99,22 +107,27 @@ public class PublicParking {
         System.out.print("Enter the option:");
         street = entry.nextInt();
         
-       
-        System.out.println("\nDoes your car have any scratches?");
-            System.out.print("Enter true/false: ");
-            scratches = entry.nextBoolean();
-            
-            System.out.println("\nDoes your car have any rupture?");
-            System.out.print("Enter true/false: ");
-            rupture = entry.nextBoolean();
-            
-            System.out.println("\nDoes your car have any collision?");
-            System.out.print("Enter true/false: ");
-            collision = entry.nextBoolean();
+        System.out.print("Enter check in time('HH:mm'): ");
+        dateStart = entry.next();
+   
+        System.out.print("Enter departure time('HH:mm'): ");
+        dateStop = entry.next();
+           
+            try {
+                d1 = format.parse(dateStart);
+                d2 = format.parse(dateStop);
+            }catch (ParseException e) {
+        }    
+        
+        long diff = d2.getTime() - d1.getTime();      
+        long diffMinutes = diff / (60 * 1000);         
+      
+        price = diffMinutes * 0.05;
             
         cars[i] = new Car(mark, licensePlate, color);
         drivers[i] = new Driver(name, age, gender, preference, ticket);
         observations[i] = new Observation(scratches, rupture, collision);
+        tickets[i] = new Ticket(price, code, dateStart, dateStop);
     }
         for(int i=0;i<1;i++){
         
@@ -152,9 +165,10 @@ public class PublicParking {
         System.out.println("The characteristics of your vehicle are: " + cars[i]);
         System.out.println("The observations of your vehicle are: " + observations[i]);
         System.out.println("\nYour information is " + drivers[i]);
+        System.out.println("Ticket: " + tickets[i]);
       //System.out.println("your observation are: Scratches " + YN1 + "Rupture" + YN2 + "Collision" + YN3 );
         
-        try {
+          try {
             d1 = format.parse(dateStart);
             d2 = format.parse(dateStop);
         }catch (ParseException e) {
@@ -163,15 +177,15 @@ public class PublicParking {
         long diff = d2.getTime() - d1.getTime();
       //long diffSeconds = diff / 1000;         
         long diffMinutes = diff / (60 * 1000);         
-      //  long diffHours = diff / (60 * 60 * 1000);                      
+      //  long diffHours = diff / (60 * 60 * 1000);                   
       //System.out.println("Time in seconds: " + diffSeconds + " seconds."); 
-        System.out.println("Su vehiculo estuvo en el parqueadero durante " + diffMinutes + " minutos " );
+        System.out.println("Su vehiculo estuvo en el parqueadero durante " + diffMinutes 
+                + " minutos y tiene que pagar un total de " + price + " dolares");
       //System.out.println("\nTime in minutes: " + diffMinutes);         
       //System.out.println("Time in hours: " + diffHours + " hours.");  
-        
+      
         }
        
-        
     }                      
 
 }
