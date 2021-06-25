@@ -13,19 +13,25 @@ public class Ticket {
     
     private double price;
     private int code;
-    private String inspect;
+    private String dateStar;
+    private String dateStop;
 
-    @Override
-    public String toString() {
-        return "Ticket{" + "price=" + price + ", code=" + code + ", inspect=" + inspect + '}';
-    }
-
-    public Ticket(double price, int code, String inspect) {
+    public Ticket(double price, int code, String dateStar, String dateStop) {
         this.price = price;
         this.code = code;
-        this.inspect = inspect;
+        this.dateStar = dateStar;
+        this.dateStop = dateStop;
     }
 
+    
+    
+    @Override
+    public String toString() {
+        return "Ticket{" + "price=" + price + ", code=" + code + ", dateStar=" + dateStar + ", dateStop=" + dateStop + '}';
+    }
+
+    
+    
     /**
      * @return the price
      */
@@ -55,17 +61,34 @@ public class Ticket {
     }
 
     /**
-     * @return the inspect
+     * @return the dateStar
      */
-    public String getInspect() {
-        return inspect;
+    public String getDateStar() {
+        return dateStar;
     }
 
     /**
-     * @param inspect the inspect to set
+     * @param dateStar the dateStar to set
      */
-    public void setInspect(String inspect) {
-        this.inspect = inspect;
+    public void setDateStar(String dateStar) {
+        this.dateStar = dateStar;
     }
 
+    /**
+     * @return the dateStop
+     */
+    public String getDateStop() {
+        return dateStop;
+    }
+
+    /**
+     * @param dateStop the dateStop to set
+     */
+    public void setDateStop(String dateStop) {
+        this.dateStop = dateStop;
+    }
+    
+    
+
+    
 }
