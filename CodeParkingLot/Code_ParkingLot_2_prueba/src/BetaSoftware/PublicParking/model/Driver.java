@@ -27,7 +27,7 @@ public class Driver {
 
     @Override
     public String toString() {
-        return "" + "name=" + name + ", age=" + age + ", gender=" + gender + ", preference=" + preference + ", ticket=" + ticket + '}';
+        return "" + "name=" + name + ", age=" + age + ", gender=" + gender + ", preference=" + preference + ", ticket=" + ticket;
     }
     
     /**

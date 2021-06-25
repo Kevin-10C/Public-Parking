@@ -23,7 +23,7 @@ public class Observation {
 
     @Override
     public String toString() {
-        return "Observation{" + "scratches=" + scratches + ", rupture=" + rupture + ", collision=" + collision + '}';
+        return "" + "scratches=" + scratches + ", rupture=" + rupture + ", collision=" + collision;
     }
      
     /**
