@@ -179,28 +179,32 @@ public class PublicParking {
         jsonDriver = gson.toJson(drivers[i]);
         jsonObservation = gson.toJson(observations[i]);
         jsonTicket = gson.toJson(tickets[i]);
+        System.out.println("\nJsonInformation car: ");
         Car car2;
         car2 = gson.fromJson(jsonCar, Car.class);
-            System.out.println("mark"+car2.getMark());
-            System.out.println("color"+car2.getColor());
-            System.out.println("licenseplate"+car2.getLicensePlate());
+            System.out.println("mark -> "+car2.getMark());
+            System.out.println("color -> "+car2.getColor());
+            System.out.println("licenseplate -> "+car2.getLicensePlate());
+        System.out.println("\nJsonInformation driver: ");
         Driver driver2;
         driver2 = gson.fromJson(jsonDriver, Driver.class);
-            System.out.println("gender"+driver2.getGender());
-            System.out.println("name"+driver2.getName());
-            System.out.println("preference"+driver2.getPreference());
-            System.out.println("age"+driver2.getAge());
+            System.out.println("gender -> "+driver2.getGender());
+            System.out.println("name -> "+driver2.getName());
+            System.out.println("preference -> "+driver2.getPreference());
+            System.out.println("age -> "+driver2.getAge());
+        System.out.println("\nJsonInformation observation: ");
         Observation observation2;
         observation2 = gson.fromJson(jsonObservation,Observation.class);
-            System.out.println("collision"+observation2.isCollision());
-            System.out.println("rupture"+observation2.isRupture());
-            System.out.println("scratches"+observation2.isScratches());
+            System.out.println("collision -> "+observation2.isCollision());
+            System.out.println("rupture -> "+observation2.isRupture());
+            System.out.println("scratches -> "+observation2.isScratches());
+        System.out.println("\nJsonInformation ticket: ");
         Ticket ticket2;
         ticket2 = gson.fromJson(jsonTicket, Ticket.class);
-            System.out.println("check in"+ticket2.getDateStar());
-            System.out.println("departure time"+ticket2.getDateStop());
-            System.out.println("code"+ticket2.getCode());
-            System.out.println("price"+ticket2.getPrice());
+            System.out.println("check in -> " + ticket2.getDateStar());
+            System.out.println("departure time -> "+ticket2.getDateStop());
+            System.out.println("code -> "+ticket2.getCode());
+            System.out.println("price -> "+ticket2.getPrice());
 
           try {
             d1 = format.parse(dateStart);
@@ -210,8 +214,8 @@ public class PublicParking {
         
         long diff = d2.getTime() - d1.getTime();       
         long diffMinutes = diff / (60 * 1000);                             
-        System.out.println("Su vehiculo estuvo en el parqueadero durante " + diffMinutes 
-                + " minutos y tiene que pagar un total de " + price + " dolares");
+        System.out.println("\nYour vehicle was in the parking lot for " + diffMinutes 
+                + " minutes and have to pay a total of " + price + " dollars");
   
       
         }
