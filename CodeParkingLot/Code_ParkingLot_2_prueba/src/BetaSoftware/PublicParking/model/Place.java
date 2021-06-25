@@ -11,7 +11,7 @@ package BetaSoftware.PublicParking.model;
  */
 public class Place {
     
-    private double position;
+    private double position; //not found in class diagram 
     private String street;
     private double distance;
 

@@ -13,8 +13,8 @@ public class Ticket {
     
     private double price;
     private int code;
-    private String dateStar;
-    private String dateStop;
+    private String dateStar; //not found in class diagram
+    private String dateStop; //not found in class diagram
 
     public Ticket(double price, int code, String dateStar, String dateStop) {
         this.price = price;

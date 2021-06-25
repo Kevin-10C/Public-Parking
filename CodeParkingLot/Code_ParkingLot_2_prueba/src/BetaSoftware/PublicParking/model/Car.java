@@ -13,7 +13,8 @@ public class Car {
     
     private String mark;
     private String licensePlate;
-    private String color;
+    private String color; 
+    //class attributes are missing
 
     @Override
     public String toString() {

@@ -11,11 +11,11 @@ package BetaSoftware.PublicParking.model;
  */
 public class Driver {
     
-    private String name;
+    private String name;  
     private int age;
     private String gender;
     private String preference;
-    private int ticket;
+    private int ticket;  //in the class diagram it is found as array
 
     public Driver(String name, int age, String gender, String preference, int ticket) {
         this.name = name;

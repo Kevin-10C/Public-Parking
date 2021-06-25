@@ -11,7 +11,7 @@ package BetaSoftware.PublicParking.model;
  */
 public class Observation {
     
-    private boolean scratches;
+    private boolean scratches; 
     private boolean rupture;
     private boolean collision;
 
