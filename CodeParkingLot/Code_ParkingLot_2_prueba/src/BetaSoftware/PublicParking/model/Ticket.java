@@ -27,7 +27,7 @@ public class Ticket {
     
     @Override
     public String toString() {
-        return "" + "price=" + price + ", code=" + code + ", dateStar=" + dateStar + ", dateStop=" + dateStop + '}';
+        return "" + "price=" + price + ", code=" + code + ", dateStar=" + dateStar + ", dateStop=" + dateStop;
     }
 
     
