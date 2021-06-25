@@ -11,33 +11,34 @@ package BetaSoftware.PublicParking.model;
  */
 public class Place {
     
-    private double area;
+    private double position;
     private String street;
     private double distance;
 
-    public Place(double area, String street, double distance) {
-        this.area = area;
+    public Place(double position, String street, double distance) {
+        this.position = position;
         this.street = street;
         this.distance = distance;
     }
 
     @Override
     public String toString() {
-        return "Place{" + "area=" + area + ", street=" + street + ", distance=" + distance + '}';
+        return "Place{" + "position=" + position + ", street=" + street + ", distance=" + distance + '}';
     }
-        
+      
+    
     /**
-     * @return the area
+     * @return the position
      */
     public double getArea() {
-        return area;
+        return position;
     }
 
     /**
-     * @param area the area to set
+     * @param position the position to set
      */
-    public void setArea(double area) {
-        this.area = area;
+    public void setArea(double position) {
+        this.position = position;
     }
 
     /**

@@ -37,6 +37,7 @@ public class PublicParking {
         String dateStop = null ;
         Date d1 = null;
         Date d2 = null;
+        int street = 0;
      
         SimpleDateFormat format = new SimpleDateFormat("HH:mm");  
         Car cars[] = new Car[1];
@@ -44,6 +45,7 @@ public class PublicParking {
         
     for(int i=0;i<1;i++){
         System.out.println("\nEnter the car information[" + (i+1) + "]:");
+        ticket=(i+1);
         
         System.out.println("Select of the vehicle:");
         System.out.println("option 0: truck");
@@ -54,7 +56,7 @@ public class PublicParking {
         System.out.print("Enter option: ");
         type = entry.nextInt();
         
-        System.out.print("\nEnter brand: ");
+        System.out.print("\nEnter mark: ");
         mark = entry.next();
         
         System.out.print("Enter the plate: ");
@@ -77,12 +79,20 @@ public class PublicParking {
         System.out.print("Enter preference: ");
         preference = entry.next();
         
-        System.out.print("Ingrese la hora de entrada: ");
+        System.out.print("Enter check in time: ");
         dateStart = entry.next();
    
-        System.out.print("Ingrese la hora de salida: ");
+        System.out.print("Enter departure time: ");
         dateStop = entry.next();
-       
+        
+        System.out.println("Select location:");
+        System.out.println("Position 1 : North 50m of the entry, Martin Street");
+        System.out.println("Position 2 : South 20m of the entry,Las moras Street");
+        System.out.println("Position 3 : East 10m of the entry, Guayacanes Street");
+        System.out.println("Position 4 : West 25m of the entry, Cabal Street");
+        System.out.print("Enter the option:");
+        street = entry.nextInt();
+        
         cars[i] = new Car(mark, licensePlate, color);
         drivers[i] = new Driver(name, age, gender, preference, ticket);
 
@@ -104,6 +114,18 @@ public class PublicParking {
         if (type == 4){
             System.out.println("\nYour vehicle is a motorcycle");
            }
+        if (street ==1){
+            System.out.println("The position of your automobile is: north 50m of the entry, Martin Street"  );  
+        }
+        if (street ==2){
+            System.out.println("The position of your automobile is: south 20m of the entry,Las moras Street");
+        }
+        if (street ==3) {
+            System.out.println("The position of your automobile is: east 10m of the entry, Guayacanes Street");
+        }
+        if (street ==4){
+            System.out.println("The position of your automobile is: west 25m of the entry, Cabal Street ");
+        }
          
         System.out.println("The characteristics of your vehicle are: " + cars[i]);
         System.out.println("\nYour information is " + drivers[i]);
