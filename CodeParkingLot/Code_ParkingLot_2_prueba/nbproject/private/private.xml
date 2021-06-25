@@ -3,21 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/Vctor/Desktop/ProyectoI/Public-Parking/CodeParkingLot/Code_ParkingLot_2_prueba/src/BetaSoftware/PublicParking/model/Driver.java</file>
-            <file>file:/C:/Users/Vctor/Desktop/ProyectoI/Public-Parking/CodeParkingLot/Code_ParkingLot_2_prueba/src/BetaSoftware/PublicParking/model/Observation.java</file>
-            <file>file:/C:/Users/Vctor/Desktop/ProyectoI/Public-Parking/CodeParkingLot/Code_ParkingLot_2_prueba/src/BetaSoftware/PublicParking/model/Car.java</file>
-            <file>file:/C:/Users/Vctor/Desktop/ProyectoI/Public-Parking/CodeParkingLot/Code_ParkingLot_2_prueba/src/BetaSoftware/PublicParking/model/Place.java</file>
-            <file>file:/C:/Users/Vctor/Desktop/ProyectoI/Public-Parking/CodeParkingLot/Code_ParkingLot_2_prueba/src/BetaSoftware/PublicParking/model/Ticket.java</file>
-            <file>file:/C:/Users/Vctor/Desktop/ProyectoI/Public-Parking/CodeParkingLot/Code_ParkingLot_2_prueba/src/BetaSoftware/PublicParking/view/PublicParking.java</file>
-=======
-            <file>file:/C:/Users/INTEPRO/Desktop/G3/Public-Parking/CodeParkingLot/Code_ParkingLot_2_prueba/src/BetaSoftware/PublicParking/view/PublicParking.java</file>
-            <file>file:/C:/Users/INTEPRO/Desktop/G3/Public-Parking/CodeParkingLot/Code_ParkingLot_2_prueba/src/BetaSoftware/PublicParking/model/Car.java</file>
-            <file>file:/C:/Users/INTEPRO/Desktop/G3/Public-Parking/CodeParkingLot/Code_ParkingLot_2_prueba/src/BetaSoftware/PublicParking/model/Ticket.java</file>
-            <file>file:/C:/Users/INTEPRO/Desktop/G3/Public-Parking/CodeParkingLot/Code_ParkingLot_2_prueba/src/BetaSoftware/PublicParking/model/Observation.java</file>
-            <file>file:/C:/Users/INTEPRO/Desktop/G3/Public-Parking/CodeParkingLot/Code_ParkingLot_2_prueba/src/BetaSoftware/PublicParking/model/Place.java</file>
-            <file>file:/C:/Users/INTEPRO/Desktop/G3/Public-Parking/CodeParkingLot/Code_ParkingLot_2_prueba/src/BetaSoftware/PublicParking/model/Driver.java</file>
->>>>>>> b6813559beb5dfd6224426b1a7d98d176d9ccb37
+            <file>file:/C:/Users/DELL/Desktop/Proyecto_2/Public-Parking/CodeParkingLot/Code_ParkingLot_2_prueba/src/BetaSoftware/PublicParking/model/Car.java</file>
+            <file>file:/C:/Users/DELL/Desktop/Proyecto_2/Public-Parking/CodeParkingLot/Code_ParkingLot_2_prueba/src/BetaSoftware/PublicParking/model/Observation.java</file>
+            <file>file:/C:/Users/DELL/Desktop/Proyecto_2/Public-Parking/CodeParkingLot/Code_ParkingLot_2_prueba/src/BetaSoftware/PublicParking/view/PublicParking.java</file>
+            <file>file:/C:/Users/DELL/Desktop/Proyecto_2/Public-Parking/CodeParkingLot/Code_ParkingLot_2_prueba/src/BetaSoftware/PublicParking/model/Driver.java</file>
+            <file>file:/C:/Users/DELL/Desktop/Proyecto_2/Public-Parking/CodeParkingLot/Code_ParkingLot_2_prueba/src/BetaSoftware/PublicParking/model/Ticket.java</file>
         </group>
     </open-files>
 </project-private>
