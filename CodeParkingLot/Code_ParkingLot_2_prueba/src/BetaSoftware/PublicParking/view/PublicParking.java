@@ -73,30 +73,30 @@ public class PublicParking {
         System.out.print("Enter option: ");
         type = entry.nextInt();
         
-        System.out.print("\nEnter Mark : ");
+        System.out.print("\nEnter Mark: ");
         mark = entry.next();
         
-        System.out.print("Enter the plate: ");
+        System.out.print("Enter the plate(AAA-000): ");
         licensePlate = entry.next();
         
         System.out.print("Enter the color: ");
         color = entry.next();
         
-        System.out.println("\nDoes your car have any scratches?");
+        System.out.println("\n¿Does your car have any scratches?");
         System.out.print("Enter true/false: ");
         scratches = entry.nextBoolean();
             
-        System.out.println("\nDoes your car have any rupture?");
+        System.out.println("\n¿Does your car have any rupture?");
         System.out.print("Enter true/false: ");
         rupture = entry.nextBoolean();
             
-        System.out.println("\nDoes your car have any collision?");
+        System.out.println("\n¿Does your car have any collision?");
         System.out.print("Enter true/false: ");
         collision = entry.nextBoolean();
         
         System.out.println("\nEnter customer information:");
         
-        System.out.print("Enter name: ");
+        System.out.print("Enter first name: ");
         name = entry.next();
         
         System.out.print("Enter age: ");
@@ -105,7 +105,7 @@ public class PublicParking {
         System.out.print("Enter gender: ");
         gender = entry.next();
         
-        System.out.print("Enter preference: ");
+        System.out.print("Enter preference(yes/no): ");
         preference = entry.next();
          
         System.out.println("\nSelect location:");
@@ -116,10 +116,10 @@ public class PublicParking {
         System.out.print("Enter the option:");
         street = entry.nextInt();
         
-        System.out.print("Enter check in time('HH:mm'): ");
+        System.out.print("\nEnter check in time(HH:mm): ");
         dateStart = entry.next();
    
-        System.out.print("Enter departure time('HH:mm'): ");
+        System.out.print("Enter departure time(HH:mm): ");
         dateStop = entry.next();
            
             try {
@@ -175,17 +175,20 @@ public class PublicParking {
         System.out.println("The observations of your vehicle are: " + observations[i]);
         System.out.println("\nYour information is " + drivers[i]);
         System.out.println("Ticket: " + tickets[i]);
+        
         jsonCar = gson.toJson(cars[i]);        
         jsonDriver = gson.toJson(drivers[i]);
         jsonObservation = gson.toJson(observations[i]);
         jsonTicket = gson.toJson(tickets[i]);
         System.out.println("\nJsonInformation car: ");
+        
         Car car2;
         car2 = gson.fromJson(jsonCar, Car.class);
             System.out.println("mark -> "+car2.getMark());
             System.out.println("color -> "+car2.getColor());
             System.out.println("licenseplate -> "+car2.getLicensePlate());
         System.out.println("\nJsonInformation driver: ");
+        
         Driver driver2;
         driver2 = gson.fromJson(jsonDriver, Driver.class);
             System.out.println("gender -> "+driver2.getGender());
@@ -193,12 +196,14 @@ public class PublicParking {
             System.out.println("preference -> "+driver2.getPreference());
             System.out.println("age -> "+driver2.getAge());
         System.out.println("\nJsonInformation observation: ");
+        
         Observation observation2;
         observation2 = gson.fromJson(jsonObservation,Observation.class);
             System.out.println("collision -> "+observation2.isCollision());
             System.out.println("rupture -> "+observation2.isRupture());
             System.out.println("scratches -> "+observation2.isScratches());
         System.out.println("\nJsonInformation ticket: ");
+        
         Ticket ticket2;
         ticket2 = gson.fromJson(jsonTicket, Ticket.class);
             System.out.println("check in -> " + ticket2.getDateStar());
