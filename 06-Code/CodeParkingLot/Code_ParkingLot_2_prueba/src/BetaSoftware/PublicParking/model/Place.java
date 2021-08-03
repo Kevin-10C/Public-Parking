@@ -11,7 +11,7 @@ package BetaSoftware.PublicParking.model;
  */
 public class Place {
     
-    private double position; //not found in class diagram 
+    private double position; 
     private String street;
     private double distance;
 
@@ -21,12 +21,7 @@ public class Place {
         this.distance = distance;
     }
 
-    @Override
-    public String toString() {
-        return "Place{" + "position=" + position + ", street=" + street + ", distance=" + distance + '}';
-    }
-      
-    
+     
     /**
      * @return the position
      */

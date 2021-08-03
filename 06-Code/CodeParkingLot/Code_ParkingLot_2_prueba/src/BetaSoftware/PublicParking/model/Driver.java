@@ -11,50 +11,81 @@ package BetaSoftware.PublicParking.model;
  */
 public class Driver {
     
-    private String name;  
-    private int age;
+    private String firtName;  
+    private String lastName;
+    private String id;
+    private String age;
     private String gender;
     private String preference;
-    private int ticket;  //in the class diagram it is found as array
+    private String code;
+    private String phoneNumber;
 
-    public Driver(String name, int age, String gender, String preference, int ticket) {
-        this.name = name;
+    public Driver(String firtName, String lastName, String id, String age, String gender, String preference, String code, String phoneNumber) {
+        this.firtName = firtName;
+        this.lastName = lastName;
+        this.id = id;
         this.age = age;
         this.gender = gender;
         this.preference = preference;
-        this.ticket = ticket;
-    }
-
-    @Override
-    public String toString() {
-        return "" + "name=" + name + ", age=" + age + ", gender=" + gender + ", preference=" + preference + ", ticket=" + ticket;
+        this.code = code;
+        this.phoneNumber = phoneNumber;
     }
     
+    
+
     /**
-     * @return the name
+     * @return the firtName
      */
-    public String getName() {
-        return name;
+    public String getFirtName() {
+        return firtName;
     }
 
     /**
-     * @param name the name to set
+     * @param firtName the firtName to set
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setFirtName(String firtName) {
+        this.firtName = firtName;
+    }
+
+    /**
+     * @return the lastName
+     */
+    public String getLastName() {
+        return lastName;
+    }
+
+    /**
+     * @param lastName the lastName to set
+     */
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    /**
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
     }
 
     /**
      * @return the age
      */
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
     /**
      * @param age the age to set
      */
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
@@ -87,19 +118,39 @@ public class Driver {
     }
 
     /**
-     * @return the ticket
+     * @return the code
      */
-    public int getTicket() {
-        return ticket;
+    public String getCode() {
+        return code;
     }
 
     /**
-     * @param ticket the ticket to set
+     * @param code the code to set
      */
-    public void setTicket(int ticket) {
-        this.ticket = ticket;
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    /**
+     * @return the phoneNumber
+     */
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    /**
+     * @param phoneNumber the phoneNumber to set
+     */
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
     
+    
+    
+   
+    
+
+
     
     
 }

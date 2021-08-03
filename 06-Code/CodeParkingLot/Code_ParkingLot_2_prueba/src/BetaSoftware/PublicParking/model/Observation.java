@@ -21,11 +21,7 @@ public class Observation {
         this.collision = collision;
     }
 
-    @Override
-    public String toString() {
-        return "" + "scratches=" + scratches + ", rupture=" + rupture + ", collision=" + collision;
-    }
-     
+    
     /**
      * @return the scratches
      */
