@@ -13,25 +13,18 @@ public class Ticket {
     
     private double price;
     private int code;
-    private String dateStar;
-    private String dateStop;
+    private String checkTime; 
+    private String departureTime; 
 
-    public Ticket(double price, int code, String dateStar, String dateStop) {
+    public Ticket(double price, int code, String checkTime, String departureTime) {
         this.price = price;
         this.code = code;
-        this.dateStar = dateStar;
-        this.dateStop = dateStop;
+        this.checkTime = checkTime;
+        this.departureTime = departureTime;
     }
+    
+    
 
-    
-    
-    @Override
-    public String toString() {
-        return "" + "price=" + price + ", code=" + code + ", dateStar=" + dateStar + ", dateStop=" + dateStop;
-    }
-
-    
-    
     /**
      * @return the price
      */
@@ -61,32 +54,36 @@ public class Ticket {
     }
 
     /**
-     * @return the dateStar
+     * @return the checkTime
      */
-    public String getDateStar() {
-        return dateStar;
+    public String getCheckTime() {
+        return checkTime;
     }
 
     /**
-     * @param dateStar the dateStar to set
+     * @param checkTime the checkTime to set
      */
-    public void setDateStar(String dateStar) {
-        this.dateStar = dateStar;
+    public void setCheckTime(String checkTime) {
+        this.checkTime = checkTime;
     }
 
     /**
-     * @return the dateStop
+     * @return the departureTime
      */
-    public String getDateStop() {
-        return dateStop;
+    public String getDepartureTime() {
+        return departureTime;
     }
 
     /**
-     * @param dateStop the dateStop to set
+     * @param departureTime the departureTime to set
      */
-    public void setDateStop(String dateStop) {
-        this.dateStop = dateStop;
+    public void setDepartureTime(String departureTime) {
+        this.departureTime = departureTime;
     }
+    
+    
+
+   
     
     
 

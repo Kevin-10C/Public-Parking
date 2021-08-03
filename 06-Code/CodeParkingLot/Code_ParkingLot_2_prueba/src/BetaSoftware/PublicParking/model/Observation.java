@@ -11,7 +11,7 @@ package BetaSoftware.PublicParking.model;
  */
 public class Observation {
     
-    private boolean scratches;
+    private boolean scratches; 
     private boolean rupture;
     private boolean collision;
 
@@ -21,11 +21,7 @@ public class Observation {
         this.collision = collision;
     }
 
-    @Override
-    public String toString() {
-        return "" + "scratches=" + scratches + ", rupture=" + rupture + ", collision=" + collision;
-    }
-     
+    
     /**
      * @return the scratches
      */

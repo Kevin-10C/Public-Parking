@@ -13,19 +13,20 @@ public class Car {
     
     private String mark;
     private String licensePlate;
-    private String color;
+    private String color; 
+    
+    //class attributes are missing
+    private Observation observation;
 
-    @Override
-    public String toString() {
-        return "" + "mark=" + mark + ", licensePlate=" + licensePlate + ", color=" + color;
-    }
-
-    public Car(String mark, String licensePlate, String color) {
+    public Car(String mark, String licensePlate, String color, Observation observation) {
         this.mark = mark;
         this.licensePlate = licensePlate;
         this.color = color;
+        this.observation = observation;
     }
 
+    
+    
     /**
      * @return the mark
      */
@@ -67,5 +68,23 @@ public class Car {
     public void setColor(String color) {
         this.color = color;
     }
+
+    /**
+     * @return the observation
+     */
+    public Observation getObservation() {
+        return observation;
+    }
+
+    /**
+     * @param observation the observation to set
+     */
+    public void setObservation(Observation observation) {
+        this.observation = observation;
+    }
+    
+    
+
+   
 
 }
