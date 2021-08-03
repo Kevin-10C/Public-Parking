@@ -132,6 +132,11 @@ public class FrmColectionData extends javax.swing.JFrame {
         jLabel14.setText("Age");
 
         jButton1.setText("OK");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Cancel");
 
@@ -290,6 +295,29 @@ public class FrmColectionData extends javax.swing.JFrame {
     private void rdbMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbMaleActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rdbMaleActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String generButton = "";
+        boolean rupture = false;
+        boolean collision = false;
+        boolean scratches = false;
+            if (chkCollision.isSelected()){
+                collision = true;
+            }
+            if (chkRupture.isSelected()){
+                rupture = true;
+            }
+            if (chkScrarches.isSelected()){
+                scratches = true;
+            }
+            if (rdbFemale.isSelected()){
+                generButton = "Female";
+            }
+            if (rdbMale.isSelected()){
+                generButton = "Male";
+            }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
