@@ -9,6 +9,26 @@ package utils;
  *
  * @author Eliana Cuaspa Beta-SoftwareTech ESPE-DCCO
  */
-public class FileManager {
+public class FileManager implements Persistence {
+
+    @Override
+    public boolean create() {
+    }
+
+    @Override
+    public String read(String code, String drivers, String cars, String description) {
+    }
+
+    @Override
+    public boolean update(String searchString, String data, String table) {
+    }
+
+    @Override
+    public boolean delete(String searchString, String table) {
+    }
+
+    @Override
+    public String find(String searchString) {
+    }
     
 }
