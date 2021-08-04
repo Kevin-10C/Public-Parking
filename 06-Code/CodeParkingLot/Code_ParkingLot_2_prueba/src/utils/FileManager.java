@@ -7,18 +7,14 @@ package utils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import static java.awt.AWTEventMulticaster.add;
-import static java.awt.AWTEventMulticaster.add;
-import static java.awt.AWTEventMulticaster.add;
-import static java.awt.AWTEventMulticaster.add;
-import static java.awt.AWTEventMulticaster.add;
-import static java.awt.AWTEventMulticaster.add;
-import static java.awt.AWTEventMulticaster.add;
-import static java.awt.AWTEventMulticaster.add;
-import static java.awt.AWTEventMulticaster.add;
-import static java.awt.AWTEventMulticaster.add;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -36,12 +32,14 @@ public class FileManager implements Persistence {
     
 
     @Override
-    public String read(String code, String drivers, String cars, String description) {
+    public String read(String code, String driver, String cars, String description) {
+        FileWriter add = null;
         try {
-            //TODO read data from file "table"
+           
             GsonBuilder gsonBuilder = new GsonBuilder();
             Gson gson = gsonBuilder.create();
             String car = gson.toJson(cars);
+            
             String drivers = gson.toJson(driver);
             String descriptions = gson.toJson(description);
 
@@ -54,7 +52,8 @@ public class FileManager implements Persistence {
 
         } catch (IOException ex) {
             Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
+        } finally
+            {
             try {
                 add.close();
             } catch (IOException ex) {
@@ -76,6 +75,30 @@ public class FileManager implements Persistence {
 
     @Override
     public String find(String searchString) {
+        String h_entry = null;
+        try (FileReader file = new FileReader("./ DriverInformation.json");
+                BufferedReader br = new BufferedReader(file)) {
+
+            String linea = br.readLine();
+
+            while (linea != null) {
+
+                StringTokenizer st = new StringTokenizer(linea);
+                while (st.hasMoreTokens()) {
+
+                    if (st.nextToken().equalsIgnoreCase(searchString)) {
+
+                    
+          }
+                }
+                linea = br.readLine();
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return h_entry;
     }
     
 }
