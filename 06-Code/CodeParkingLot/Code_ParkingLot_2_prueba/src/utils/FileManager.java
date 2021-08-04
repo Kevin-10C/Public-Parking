@@ -21,48 +21,13 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Eliana Cuaspa Beta-SoftwareTech ESPE-DCCO
+ * @author Eliana Cuaspa Beta_Software ESPE-DCCO
  */
 public class FileManager implements Persistence {
-private String driver;
+
+    private String driver;
     private String description;
     private String cars;
-    
-public static String findUser(String search) {
-
-        String entry = null;
-        try (FileReader file = new FileReader("./ UserDriver.json");
-                BufferedReader br = new BufferedReader(file)) {
-
-            String linea = br.readLine();
-
-            while (linea != null) {
-
-                StringTokenizer st = new StringTokenizer(linea);
-                while (st.hasMoreTokens()) {
-
-                    if (st.nextToken().equalsIgnoreCase(search)) {
-                        entry = linea.substring(0, 6);
-                        
-                    }
-                }
-                linea = br.readLine();
-            }
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return entry;
-    }
-
-    public FileManager(String driver, String description, String cars) {
-        this.driver = driver;
-        this.description = description;
-        this.cars = cars;
-    }
-    
-    
 
     @Override
     public boolean create() {
@@ -74,7 +39,6 @@ public static String findUser(String search) {
     public String read(String code, String driver, String description, String cars) {
         FileWriter add = null;
         try {
-            //TODO read data from file "table"
             GsonBuilder gsonBuilder = new GsonBuilder();
             Gson gson = gsonBuilder.create();
             String car = gson.toJson(cars);
@@ -101,7 +65,7 @@ public static String findUser(String search) {
     }
 
     @Override
-    public boolean update(String searchString, String data, String table) {
+    public boolean update(String data) {
         FileWriter add = null;
         try {
 
@@ -122,10 +86,9 @@ public static String findUser(String search) {
             }
         }
         return true;
-        
     }
-    
-   @Override
+
+    @Override
     public boolean delete(String searchString, String table) {
         return true;
     }
@@ -144,6 +107,7 @@ public static String findUser(String search) {
                 while (st.hasMoreTokens()) {
 
                     if (st.nextToken().equalsIgnoreCase(searchString)) {
+
                     }
                 }
                 linea = br.readLine();
@@ -154,9 +118,9 @@ public static String findUser(String search) {
             Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
         }
         return h_entry;
-    } 
-    
-    public static String findCode(String code){
+    }
+
+    public static String findCode(String code) {
         String linea1 = "";
         try (FileReader file = new FileReader("./ DriverInformation.json");
                 BufferedReader br = new BufferedReader(file)) {
@@ -181,7 +145,7 @@ public static String findUser(String search) {
         }
         return linea1;
     }
-    
+
     public static String insert(String code) {
         FileWriter add = null;
         try {
@@ -204,6 +168,7 @@ public static String findUser(String search) {
         }
         return "";
     }
+
     public static String CarEntry(String search, String checkInTime) {
         String entry = "";
         try (FileReader file = new FileReader("./ UserDriver.json");
@@ -233,6 +198,67 @@ public static String findUser(String search) {
             Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
         }
         return "";
+    }
+
+    public static String findUser(String search) {
+
+        String entry = null;
+        try (FileReader file = new FileReader("./ UserDriver.json");
+                BufferedReader br = new BufferedReader(file)) {
+
+            String linea = br.readLine();
+
+            while (linea != null) {
+
+                StringTokenizer st = new StringTokenizer(linea);
+                while (st.hasMoreTokens()) {
+
+                    if (st.nextToken().equalsIgnoreCase(search)) {
+                        entry = linea.substring(0, 6);
+
+                    }
+                }
+                linea = br.readLine();
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return entry;
+    }
+
+    public static String findUserExit(String search) {
+
+        String time = null;
+        try (FileReader file = new FileReader("./ UserDriverEntry.json");
+                BufferedReader br = new BufferedReader(file)) {
+
+            String linea = br.readLine();
+
+            while (linea != null) {
+
+                StringTokenizer st = new StringTokenizer(linea);
+                while (st.hasMoreTokens()) {
+
+                    if (st.nextToken().equalsIgnoreCase(search)) {
+                        time = linea.substring(7, 12);
+                    }
+                }
+                linea = br.readLine();
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return time;
+    }
+
+    public FileManager(String driver, String description, String cars) {
+        this.driver = driver;
+        this.description = description;
+        this.cars = cars;
     }
 
     /**
@@ -276,6 +302,5 @@ public static String findUser(String search) {
     public void setCars(String cars) {
         this.cars = cars;
     }
-    
-    
+
 }

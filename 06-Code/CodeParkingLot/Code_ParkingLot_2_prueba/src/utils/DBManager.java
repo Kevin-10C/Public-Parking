@@ -17,23 +17,15 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Eliana Cuaspa Beta-SoftwareTech ESPE-DCCO
+ * @author Eliana Cuaspa Beta_Software ESPE-DCCO
  */
-public class DBManager implements Persistence  {
-    
+public class DBManager implements Persistence {
+
     DB dbMongo;
     DBCollection tableMongo;
     private String driver;
     private String description;
     private String cars;
-
-    public DBManager(String driver, String description, String cars) {
-        this.driver = driver;
-        this.description = description;
-        this.cars = cars;
-    }
-    
-    
 
     @Override
     public boolean create() {
@@ -43,27 +35,23 @@ public class DBManager implements Persistence  {
             tableMongo = dbMongo.getCollection("InformationDriver");
         } catch (UnknownHostException ex) {
             Logger.getLogger(List.class.getName()).log(Level.SEVERE, null, ex);
-
         }
         return true;
     }
 
     @Override
-    public String read(String code, String drivers, String cars, String description) {
-        //TODO read data from database collection "table"
+    public String read(String code, String driver, String description, String cars) {
         BasicDBObject document = new BasicDBObject();
         document.put("Code", code);
         document.put("Driver", driver);
-        //tableMongo.insert(document);
         document.put("Car", cars);
         document.put("Description", description);
         tableMongo.insert(document);
-        //document.put("lastName", lastName.getText());
         return "{}";
     }
 
     @Override
-    public boolean update(String searchString, String data, String table) {
+    public boolean update(String data) {
         return true;
     }
 
@@ -78,19 +66,23 @@ public class DBManager implements Persistence  {
             document.put("Code", searchString);
             tableMongo.remove(document);
         }
-        return true; 
+        return true;
     }
 
     @Override
     public String find(String searchString) {
-       
         DBCursor cursor = tableMongo.find();
-        
         String data = "";
         while (cursor.hasNext()) {
             data = cursor.toString();
         }
-      return data;
+        return data;
+    }
+
+    public DBManager(String driver, String description, String cars) {
+        this.driver = driver;
+        this.description = description;
+        this.cars = cars;
     }
 
     /**
@@ -110,14 +102,14 @@ public class DBManager implements Persistence  {
     /**
      * @return the description
      */
-    public String getDescription() {
+    public String getObservation() {
         return description;
     }
 
     /**
      * @param description the description to set
      */
-    public void setDescription(String description) {
+    public void setObservation(String description) {
         this.description = description;
     }
 
@@ -134,6 +126,5 @@ public class DBManager implements Persistence  {
     public void setCars(String cars) {
         this.cars = cars;
     }
-    
-    
+
 }

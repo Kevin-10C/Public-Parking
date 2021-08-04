@@ -10,12 +10,15 @@ package utils;
  * @author Eliana Cuaspa Beta-SoftwareTech ESPE-DCCO
  */
 public interface Persistence {
-    
+
     public boolean create();
+
     public String read(String code, String drivers, String cars, String description);
-    public boolean update(String searchString, String data, String table); 
+
+    public boolean update(String data);
+
     public boolean delete(String searchString, String table);
+
     public String find(String searchString);
-    
-    
+
 }
