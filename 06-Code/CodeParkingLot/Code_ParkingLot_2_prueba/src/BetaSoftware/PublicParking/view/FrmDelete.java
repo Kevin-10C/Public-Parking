@@ -12,7 +12,8 @@ import BetaSoftware.PublicParking.controller.TicketController;
  * @author Eliana Cuaspa Beta-SoftwareTech ESPE-DCCO
  */
 public class FrmDelete extends javax.swing.JFrame {
-
+DB dbMongo;
+    DBCollection tableMongo;
     /**
      * Creates new form FrmDelete
      */
