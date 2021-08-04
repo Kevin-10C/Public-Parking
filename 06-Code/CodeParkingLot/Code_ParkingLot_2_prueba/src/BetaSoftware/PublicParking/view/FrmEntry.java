@@ -40,6 +40,11 @@ public class FrmEntry extends javax.swing.JFrame {
         jButton1.setText("Close");
 
         jButton2.setText("Pay in");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         pswSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,6 +101,21 @@ public class FrmEntry extends javax.swing.JFrame {
     private void pswSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pswSearchActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pswSearchActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String search = pswSearch.getText();
+        String checkInTime = CarController.CheckInTime();
+        
+        if(search.equals(TicketController.findUser(search))){
+            JOptionPane.showMessageDialog(rootPane, "Bienvenido\nHora de ingreso: " + checkInTime);
+            TicketController.CarEntry(search, checkInTime);
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "El codigo es incorrecto\nCrea un nuevo usuario");
+        }
+        FrmParkingSystem frmPsyt = new FrmParkingSystem();
+        frmPsyt.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
