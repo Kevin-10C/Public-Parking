@@ -45,4 +45,9 @@ public class CarController {
         return diffMinutes;
 
     }
+
+    public CarController() {
+    }
+    
+    
 }

@@ -9,7 +9,7 @@ package utils;
  *
  * @author Eliana Cuaspa Beta-SoftwareTech ESPE-DCCO
  */
-public class DBMagener implements Persistence  {
+public class DBMaganer implements Persistence  {
 
     @Override
     public boolean create() {
