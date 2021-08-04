@@ -186,7 +186,7 @@ public class FrmColectionData extends javax.swing.JFrame {
 
         jMenu2.setText("Search");
 
-        jMenuItem3.setText("Search for a user");
+        jMenuItem3.setText("Search for an user");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
