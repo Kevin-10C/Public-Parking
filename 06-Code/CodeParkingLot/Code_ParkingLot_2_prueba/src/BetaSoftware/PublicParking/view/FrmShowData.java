@@ -41,6 +41,11 @@ public class FrmShowData extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         jButton1.setText("Show");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -70,6 +75,22 @@ public class FrmShowData extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            Mongo mongo = new Mongo("localhost", 27017);
+            dbMongo = mongo.getDB("Driver");
+            tableMongo = dbMongo.getCollection("InformationDriver");
+        } catch (UnknownHostException ex) {
+            Logger.getLogger(List.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+
+        DBCursor cursor1 = tableMongo.find();
+        while (cursor1.hasNext()) {
+            txaData.setText(txaData.getText() + "\n" + cursor1.next());
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
