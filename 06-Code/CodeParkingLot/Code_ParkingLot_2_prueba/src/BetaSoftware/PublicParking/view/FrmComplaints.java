@@ -5,6 +5,9 @@
  */
 package BetaSoftware.PublicParking.view;
 
+import BetaSoftware.PublicParking.controller.TicketController;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Eliana Cuaspa Beta-SoftwareTech ESPE-DCCO
@@ -29,18 +32,23 @@ public class FrmComplaints extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txaComplaint = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Submit your complaint or ways to improve the application here:");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txaComplaint.setColumns(20);
+        txaComplaint.setRows(5);
+        jScrollPane1.setViewportView(txaComplaint);
 
         jButton1.setText("OK");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -69,6 +77,13 @@ public class FrmComplaints extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String data = txaComplaint.getText();
+        TicketController.Data(data);
+        JOptionPane.showMessageDialog(txaComplaint, "Thanks for your recommendations.");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -110,6 +125,6 @@ public class FrmComplaints extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea txaComplaint;
     // End of variables declaration//GEN-END:variables
 }
