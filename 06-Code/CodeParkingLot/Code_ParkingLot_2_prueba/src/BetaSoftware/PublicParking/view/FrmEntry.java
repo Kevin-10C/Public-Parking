@@ -5,6 +5,10 @@
  */
 package BetaSoftware.PublicParking.view;
 
+import BetaSoftware.PublicParking.controller.CarController;
+import BetaSoftware.PublicParking.controller.TicketController;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Eliana Cuaspa Beta-SoftwareTech ESPE-DCCO
@@ -112,10 +116,10 @@ public class FrmEntry extends javax.swing.JFrame {
         String checkInTime = CarController.CheckInTime();
         
         if(search.equals(TicketController.findUser(search))){
-            JOptionPane.showMessageDialog(rootPane, "Bienvenido\nHora de ingreso: " + checkInTime);
+            JOptionPane.showMessageDialog(rootPane, "Welcome \\ nEntry time: " + checkInTime);
             TicketController.CarEntry(search, checkInTime);
         }else{
-            JOptionPane.showMessageDialog(rootPane, "El codigo es incorrecto\nCrea un nuevo usuario");
+            JOptionPane.showMessageDialog(rootPane, "The code is incorrect \\ nCreate a new user");
         }
         FrmParkingSystem frmPsyt = new FrmParkingSystem();
         frmPsyt.setVisible(true);
