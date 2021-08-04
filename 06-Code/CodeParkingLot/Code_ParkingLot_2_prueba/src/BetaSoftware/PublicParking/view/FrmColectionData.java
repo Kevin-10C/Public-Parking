@@ -27,7 +27,7 @@ public class FrmColectionData extends javax.swing.JFrame {
         initComponents();
         buttonGener.add(rdbMale);
         buttonGener.add(rdbFemale);
-        SpinnerNumberModel num=new SpinnerNumberModel();
+        SpinnerNumberModel num = new SpinnerNumberModel();
         num.setMaximum(100);
         num.setMinimum(0);
         spnAge.setModel(num);
@@ -310,23 +310,23 @@ public class FrmColectionData extends javax.swing.JFrame {
         boolean rupture = false;
         boolean collision = false;
         boolean scratches = false;
-            if (chkCollision.isSelected()){
-                collision = true;
-            }
-            if (chkRupture.isSelected()){
-                rupture = true;
-            }
-            if (chkScrarches.isSelected()){
-                scratches = true;
-            }
-            if (rdbFemale.isSelected()){
-                generButton = "Female";
-            }
-            if (rdbMale.isSelected()){
-                generButton = "Male";
-            }
-            
-            Gson gson = gsonBuilder.create();
+        if (chkCollision.isSelected()) {
+            collision = true;
+        }
+        if (chkRupture.isSelected()) {
+            rupture = true;
+        }
+        if (chkScrarches.isSelected()) {
+            scratches = true;
+        }
+        if (rdbFemale.isSelected()) {
+            generButton = "Female";
+        }
+        if (rdbMale.isSelected()) {
+            generButton = "Male";
+        }
+
+        Gson gson = gsonBuilder.create();
 
         String ruptureButton = chkRupture.getText();
         String collisionButton = chkCollision.getText();
@@ -346,7 +346,7 @@ public class FrmColectionData extends javax.swing.JFrame {
         String gener = generButton;
         String age = spnAge.getValue().toString();
 
-        Driver drivers = new Driver(firstName, lastName, id, code, phoneNumber, gener, age);
+        Driver drivers = new Driver(firstName, lastName, id, code, gener, phoneNumber, gener, age);
         Observation observations = new Observation(scratches, rupture, collision);
         Car car = new Car(mark, licensePlate, color, observations);
 
