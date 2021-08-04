@@ -3,12 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< Updated upstream
             <file>file:/C:/Users/Vctor/Desktop/ProyectoI/Public-Parking/06-Code/CodeParkingLot/Code_ParkingLot_2_prueba/src/BetaSoftware/PublicParking/view/FrmEntry.java</file>
             <file>file:/C:/Users/Vctor/Desktop/ProyectoI/Public-Parking/06-Code/CodeParkingLot/Code_ParkingLot_2_prueba/src/BetaSoftware/PublicParking/view/FrmParkingSystem.java</file>
             <file>file:/C:/Users/Vctor/Desktop/ProyectoI/Public-Parking/06-Code/CodeParkingLot/Code_ParkingLot_2_prueba/src/BetaSoftware/PublicParking/view/FrmExit.java</file>
             <file>file:/C:/Users/Vctor/Desktop/ProyectoI/Public-Parking/06-Code/CodeParkingLot/Code_ParkingLot_2_prueba/src/utils/FileManager.java</file>
             <file>file:/C:/Users/Vctor/Desktop/ProyectoI/Public-Parking/06-Code/CodeParkingLot/Code_ParkingLot_2_prueba/src/BetaSoftware/PublicParking/view/FrmShowData.java</file>
             <file>file:/C:/Users/Vctor/Desktop/ProyectoI/Public-Parking/06-Code/CodeParkingLot/Code_ParkingLot_2_prueba/src/BetaSoftware/PublicParking/view/FrmColectionData.java</file>
+=======
+            <file>file:/C:/Users/INTEPRO/Desktop/G3/Public-Parking/06-Code/CodeParkingLot/Code_ParkingLot_2_prueba/src/utils/FileManager.java</file>
+            <file>file:/C:/Users/INTEPRO/Desktop/G3/Public-Parking/06-Code/CodeParkingLot/Code_ParkingLot_2_prueba/src/BetaSoftware/PublicParking/view/FrmColectionData.java</file>
+            <file>file:/C:/Users/INTEPRO/Desktop/G3/Public-Parking/06-Code/CodeParkingLot/Code_ParkingLot_2_prueba/src/BetaSoftware/PublicParking/view/FrmComplaints.java</file>
+            <file>file:/C:/Users/INTEPRO/Desktop/G3/Public-Parking/06-Code/CodeParkingLot/Code_ParkingLot_2_prueba/src/BetaSoftware/PublicParking/view/FrmParkingSystem.java</file>
+>>>>>>> Stashed changes
         </group>
     </open-files>
 </project-private>
