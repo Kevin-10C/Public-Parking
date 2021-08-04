@@ -5,6 +5,13 @@
  */
 package BetaSoftware.PublicParking.view;
 
+import BetaSoftware.PublicParking.controller.TicketController;
+import BetaSoftware.PublicParking.model.Car;
+import BetaSoftware.PublicParking.model.Driver;
+import BetaSoftware.PublicParking.model.Observation;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;
 
 /**
@@ -20,7 +27,7 @@ public class FrmColectionData extends javax.swing.JFrame {
         initComponents();
         buttonGener.add(rdbMale);
         buttonGener.add(rdbFemale);
-        SpinnerNumberModel num=new SpinnerNumberModel();
+        SpinnerNumberModel num = new SpinnerNumberModel();
         num.setMaximum(100);
         num.setMinimum(0);
         spnAge.setModel(num);
@@ -68,6 +75,17 @@ public class FrmColectionData extends javax.swing.JFrame {
         spnAge = new javax.swing.JSpinner();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -139,6 +157,47 @@ public class FrmColectionData extends javax.swing.JFrame {
         });
 
         jButton2.setText("Cancel");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jMenu1.setText("File");
+
+        jMenuItem1.setText("Show all data");
+        jMenu1.add(jMenuItem1);
+        jMenu1.add(jSeparator1);
+
+        jMenuItem2.setText("Exit");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Search");
+
+        jMenuItem3.setText("Search for a user");
+        jMenu2.add(jMenuItem3);
+        jMenu2.add(jSeparator2);
+
+        jMenuItem4.setText("Delete user");
+        jMenu2.add(jMenuItem4);
+
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Help");
+
+        jMenuItem5.setText("Post comment");
+        jMenu3.add(jMenuItem5);
+
+        jMenuBar1.add(jMenu3);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -215,9 +274,9 @@ public class FrmColectionData extends javax.swing.JFrame {
                         .addGap(171, 171, 171)
                         .addComponent(jLabel8))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(111, 111, 111)
+                        .addGap(106, 106, 106)
                         .addComponent(jButton1)
-                        .addGap(86, 86, 86)
+                        .addGap(91, 91, 91)
                         .addComponent(jButton2)))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
@@ -279,10 +338,10 @@ public class FrmColectionData extends javax.swing.JFrame {
                     .addComponent(jLabel12)
                     .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -299,25 +358,75 @@ public class FrmColectionData extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String generButton = "";
+        GsonBuilder gsonBuilder = new GsonBuilder();
         boolean rupture = false;
         boolean collision = false;
         boolean scratches = false;
-            if (chkCollision.isSelected()){
-                collision = true;
-            }
-            if (chkRupture.isSelected()){
-                rupture = true;
-            }
-            if (chkScrarches.isSelected()){
-                scratches = true;
-            }
-            if (rdbFemale.isSelected()){
-                generButton = "Female";
-            }
-            if (rdbMale.isSelected()){
-                generButton = "Male";
-            }
+        if (chkCollision.isSelected()) {
+            collision = true;
+        }
+        if (chkRupture.isSelected()) {
+            rupture = true;
+        }
+        if (chkScrarches.isSelected()) {
+            scratches = true;
+        }
+        if (rdbFemale.isSelected()) {
+            generButton = "Female";
+        }
+        if (rdbMale.isSelected()) {
+            generButton = "Male";
+        }
+
+        Gson gson = gsonBuilder.create();
+
+        String ruptureButton = chkRupture.getText();
+        String collisionButton = chkCollision.getText();
+        String scratchesButton = chkScrarches.getText();
+
+        String licensePlate = txtLicensePlate.getText();
+        String mark = cmbBrand.getSelectedItem().toString();
+        String color = cmbColor.getSelectedItem().toString();
+        String type = cmbGuy.getSelectedItem().toString();
+        String description = txtDescription.getText();
+
+        String code = TicketController.CodeNumber();
+        String firstName = txtFirstName.getText();
+        String lastName = txtLastName.getText();
+        String id = txtId.getText();
+        String phoneNumber = txtPhoneNumber.getText();
+        String gener = generButton;
+        String age = spnAge.getValue().toString();
+
+        Driver drivers = new Driver(firstName, lastName, id, code, gener, phoneNumber, gener, age);
+        Observation observations = new Observation(scratches, rupture, collision);
+        Car car = new Car(mark, licensePlate, color, observations);
+
+        String driver = gson.toJson(drivers);
+        String cars = gson.toJson(car);
+
+        TicketController ticket = new TicketController(driver, description, cars);
+
+        ticket.add(code, driver, cars, description);
+
+        ticket.insert(code);
+
+        JOptionPane.showMessageDialog(rootPane, "Your information has been saved correctly, \\ nyour user code is " + code);
+
+        FrmParkingSystem frm = new FrmParkingSystem();
+        frm.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        FrmParkingSystem frm = new FrmParkingSystem();
+        frm.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -378,7 +487,18 @@ public class FrmColectionData extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JRadioButton rdbFemale;
     private javax.swing.JRadioButton rdbMale;
     private javax.swing.JSpinner spnAge;

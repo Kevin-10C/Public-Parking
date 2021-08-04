@@ -3,8 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/INTEPRO/Desktop/G3/Public-Parking/06-Code/CodeParkingLot/Code_ParkingLot_2_prueba/src/utils/FileManager.java</file>
             <file>file:/C:/Users/INTEPRO/Desktop/G3/Public-Parking/06-Code/CodeParkingLot/Code_ParkingLot_2_prueba/src/BetaSoftware/PublicParking/view/FrmColectionData.java</file>
+=======
+            <file>file:/C:/Users/darwi/Desktop/BPRO/Public-Parking/06-Code/CodeParkingLot/Code_ParkingLot_2_prueba/src/BetaSoftware/PublicParking/controller/CarController.java</file>
+            <file>file:/C:/Users/darwi/Desktop/BPRO/Public-Parking/06-Code/CodeParkingLot/Code_ParkingLot_2_prueba/src/BetaSoftware/PublicParking/view/FrmDelete.java</file>
+            <file>file:/C:/Users/darwi/Desktop/BPRO/Public-Parking/06-Code/CodeParkingLot/Code_ParkingLot_2_prueba/src/utils/FileManager.java</file>
+            <file>file:/C:/Users/darwi/Desktop/BPRO/Public-Parking/06-Code/CodeParkingLot/Code_ParkingLot_2_prueba/src/utils/DBManager.java</file>
+            <file>file:/C:/Users/darwi/Desktop/BPRO/Public-Parking/06-Code/CodeParkingLot/Code_ParkingLot_2_prueba/src/BetaSoftware/PublicParking/view/FrmFindData.java</file>
+            <file>file:/C:/Users/darwi/Desktop/BPRO/Public-Parking/06-Code/CodeParkingLot/Code_ParkingLot_2_prueba/src/BetaSoftware/PublicParking/controller/TicketController.java</file>
+>>>>>>> f100db90b663837b3a5ad48fd11ff90210bc7ee2
         </group>
     </open-files>
 </project-private>
