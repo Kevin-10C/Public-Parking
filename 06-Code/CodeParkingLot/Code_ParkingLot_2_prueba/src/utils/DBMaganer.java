@@ -5,8 +5,10 @@
  */
 package utils;
 
+import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
+import com.mongodb.DBCursor;
 import com.mongodb.Mongo;
 import java.awt.List;
 import java.net.UnknownHostException;
@@ -48,6 +50,16 @@ public class DBMaganer implements Persistence  {
 
     @Override
     public String read(String code, String drivers, String cars, String description) {
+        //TODO read data from database collection "table"
+        BasicDBObject document = new BasicDBObject();
+        document.put("Code", code);
+        document.put("Driver", driver);
+        //tableMongo.insert(document);
+        document.put("Car", cars);
+        document.put("Description", description);
+        tableMongo.insert(document);
+        //document.put("lastName", lastName.getText());
+        return "{}";
     }
 
     @Override
@@ -60,6 +72,14 @@ public class DBMaganer implements Persistence  {
 
     @Override
     public String find(String searchString) {
+        //TODO find a record in the database collection file according to searchString
+        DBCursor cursor = tableMongo.find();
+        //String data = cursor.toString();
+        String data = "";
+        while (cursor.hasNext()) {
+            data = cursor.toString();
+        }
+      return data;
     }
 
     /**
