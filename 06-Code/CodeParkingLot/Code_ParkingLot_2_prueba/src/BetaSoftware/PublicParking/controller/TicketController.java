@@ -5,10 +5,14 @@
  */
 package BetaSoftware.PublicParking.controller;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import utils.DBManager;
@@ -17,17 +21,17 @@ import utils.Persistence;
 
 /**
  *
- * @author Eliana Cuaspa Beta-SoftwareTech ESPE-DCCO
+ * @author Eliana Cuaspa Beta_Software ESPE-DCCO
  */
 public class TicketController {
-
+    
     private Persistence persistence;
     private Persistence persistence1;
     private Persistence persistence2;
     private String driver;
     private String description;
     private String cars;
-
+    
     public static String CodeNumber() {
         String code = "";
         double d;
@@ -39,6 +43,55 @@ public class TicketController {
             }
         }
         return code;
+    }
+
+    public void add(String code, String driver, String description, String cars){
+        
+        persistence = new DBManager(driver, description, cars);
+        persistence.create();
+        persistence.read(code, driver, cars, description);
+        
+        persistence1 = new FileManager(driver, description, cars);
+        persistence1.create();
+        persistence1.read(code, driver, cars, description);
+    }
+    
+    public void find(String searchString){
+        
+        persistence2 = new DBManager(getDriver(), getDescription(), getCars());
+        persistence2.find(searchString);
+        
+        persistence2 = new FileManager(getDriver(), getDescription(), getCars());
+        //persistence2.find(searchString);
+        
+    }
+    
+    public void insert(String code){
+        FileManager.insert(code);
+    }
+    
+    public static String findUser(String search){
+        String code;
+        code = FileManager.findUser(search);
+        return code;
+    }
+    
+    public static String CarEntry(String search, String checkInTime){
+        String time;
+        time = FileManager.CarEntry(search, checkInTime);
+        return "";
+    }
+    
+    public static String CarExit(String search){
+        String time;
+        time = FileManager.findUserExit(search);
+        return time;
+    }
+    
+    public static String findCode(String code){
+        String code1;
+        code1 = FileManager.findUser(code);
+        return code1;
     }
     
     public static void Data(String data){
@@ -64,56 +117,32 @@ public class TicketController {
         
     }
     
-    public void add(String code, String driver, String description, String cars){
-        
-        persistence = new DBManager(driver, description, cars);
-        persistence.create();
-        persistence.read(code, driver, cars, description);
-        
-        persistence1 = new FileManager(driver, description, cars);
-        persistence1.create();
-        persistence1.read(code, driver, cars, description);
-    }
-    
-    public void find(String searchString){
-        
-        persistence2 = new DBManager(getDriver(), getDescription(), getCars());
-        persistence2.find(searchString);
-        
-        persistence2 = new FileManager(getDriver(), getDescription(), getCars());
-        
-        
+    public static String findUserCode(String code){
+        String entry = "";
+        String linea = null;
+       try (FileReader file = new FileReader(".DriverInformation.json");
+                BufferedReader br = new BufferedReader(file)) {
+
+            linea = br.readLine();
+
+            while (linea != null) {
+                StringTokenizer st = new StringTokenizer(linea, " ,.");
+                while (st.hasMoreTokens()) {
+                    if (st.nextToken().equalsIgnoreCase(code)) {
+                        entry = linea.substring(0);
+                    }
+                }
+                linea = br.readLine();
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(TicketController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(TicketController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return linea;
     }
     
 
-    public void insert(String code){
-        FileManager.insert(code);
-    }
-    
-    public static String findUser(String search){
-        String code;
-        code = FileManager.findUser(search);
-        return code;
-    }
-    
-    public static String CarEntry(String search, String checkInTime){
-        String time;
-        time = FileManager.CarEntry(search, checkInTime);
-        return "";
-    }
-     public static String CarExit(String search){
-        String time;
-        time = FileManager.findUserExit(search);
-        return time;
-    }
-    
-    public static String findCode(String code){
-        String code1;
-        code1 = FileManager.findCode(code);
-        return code1;
-    }
-    
-    
     public TicketController(String driver, String description, String cars) {
         this.driver = driver;
         this.description = description;

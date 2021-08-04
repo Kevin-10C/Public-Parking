@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BetaSoftware.PublicParking.controller;
+package ec.edu.espe.parking.controller;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -12,7 +12,7 @@ import java.util.Date;
 
 /**
  *
- * @author Eliana Cuaspa Beta_Software ESPE-DCCO
+ * @author Bryan Chiliquinga Beta_Software ESPE-DCCO
  */
 public class CarController {
  
@@ -20,6 +20,7 @@ public class CarController {
         DateFormat dateFormat = new SimpleDateFormat("HH:mm");
         Date date = new Date();
         String newDate = dateFormat.format(date);
+        //System.out.println("\nCheck in time is: " + date1);
         return newDate;
     }
 
@@ -27,6 +28,7 @@ public class CarController {
         DateFormat dateFormat = new SimpleDateFormat("HH:mm");
         Date date = new Date();
         String date2 = dateFormat.format(date);
+        //System.out.println("\nCheckout time is: " + date2);
         return date2;
     }
 

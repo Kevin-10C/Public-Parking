@@ -14,8 +14,6 @@ public class Car {
     private String mark;
     private String licensePlate;
     private String color; 
-    
-    //class attributes are missing
     private Observation observation;
 
     public Car(String mark, String licensePlate, String color, Observation observation) {
@@ -24,9 +22,7 @@ public class Car {
         this.color = color;
         this.observation = observation;
     }
-
-    
-    
+ 
     /**
      * @return the mark
      */
