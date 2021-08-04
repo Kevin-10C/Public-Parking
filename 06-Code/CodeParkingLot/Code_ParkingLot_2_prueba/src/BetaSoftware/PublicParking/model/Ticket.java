@@ -10,11 +10,11 @@ package BetaSoftware.PublicParking.model;
  * @author Eliana Cuaspa Beta-SoftwareTech ESPE-DCCO
  */
 public class Ticket {
-    
+
     private double price;
     private int code;
-    private String checkTime; 
-    private String departureTime; 
+    private String checkTime;
+    private String departureTime;
 
     public Ticket(double price, int code, String checkTime, String departureTime) {
         this.price = price;
@@ -22,8 +22,6 @@ public class Ticket {
         this.checkTime = checkTime;
         this.departureTime = departureTime;
     }
-    
-    
 
     /**
      * @return the price
@@ -80,12 +78,5 @@ public class Ticket {
     public void setDepartureTime(String departureTime) {
         this.departureTime = departureTime;
     }
-    
-    
 
-   
-    
-    
-
-    
 }

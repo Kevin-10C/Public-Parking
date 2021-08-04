@@ -10,6 +10,7 @@ package BetaSoftware.PublicParking.model;
  * @author Eliana Cuaspa Beta-SoftwareTech ESPE-DCCO
  */
 public class Invoice {
+
     private float cost;
     private String departureTime;
     private String checkInTime;
@@ -20,8 +21,6 @@ public class Invoice {
         this.checkInTime = checkInTime;
     }
 
-    
-    
     /**
      * @return the cost
      */
@@ -63,8 +62,5 @@ public class Invoice {
     public void setCheckInTime(String checkInTime) {
         this.checkInTime = checkInTime;
     }
-    
-    
-    
-    
+
 }

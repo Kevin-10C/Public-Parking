@@ -10,8 +10,8 @@ package BetaSoftware.PublicParking.model;
  * @author Eliana Cuaspa Beta-SoftwareTech ESPE-DCCO
  */
 public class Observation {
-    
-    private boolean scratches; 
+
+    private boolean scratches;
     private boolean rupture;
     private boolean collision;
 
@@ -21,7 +21,6 @@ public class Observation {
         this.collision = collision;
     }
 
-    
     /**
      * @return the scratches
      */
@@ -63,7 +62,5 @@ public class Observation {
     public void setCollision(boolean collision) {
         this.collision = collision;
     }
-    
-    
-    
+
 }

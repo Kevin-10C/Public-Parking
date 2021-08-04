@@ -10,8 +10,8 @@ package BetaSoftware.PublicParking.model;
  * @author Eliana Cuaspa Beta-SoftwareTech ESPE-DCCO
  */
 public class Place {
-    
-    private double position; 
+
+    private double position;
     private String street;
     private double distance;
 
@@ -21,7 +21,6 @@ public class Place {
         this.distance = distance;
     }
 
-     
     /**
      * @return the position
      */
@@ -63,6 +62,5 @@ public class Place {
     public void setDistance(double distance) {
         this.distance = distance;
     }
-    
-    
+
 }
