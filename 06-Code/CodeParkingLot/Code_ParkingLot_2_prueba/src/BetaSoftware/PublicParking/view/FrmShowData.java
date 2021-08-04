@@ -5,6 +5,11 @@
  */
 package BetaSoftware.PublicParking.view;
 
+import java.awt.List;
+import java.net.UnknownHostException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Kevin Criollo BetaSoftwareTech ESPE-DCCO
@@ -30,16 +35,16 @@ DBCollection tableMongo;
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txaData = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("                                                   All user data");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txaData.setColumns(20);
+        txaData.setRows(5);
+        jScrollPane1.setViewportView(txaData);
 
         jButton1.setText("Show");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -132,6 +137,6 @@ DBCollection tableMongo;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea txaData;
     // End of variables declaration//GEN-END:variables
 }
