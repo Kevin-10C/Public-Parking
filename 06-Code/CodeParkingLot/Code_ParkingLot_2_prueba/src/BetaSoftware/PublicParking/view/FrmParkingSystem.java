@@ -48,6 +48,11 @@ public class FrmParkingSystem extends javax.swing.JFrame {
         });
 
         jButton2.setText("Take out vehicle");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Create new user");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -122,9 +127,13 @@ public class FrmParkingSystem extends javax.swing.JFrame {
         frmCD.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
-FrmEntry frmPs = new FrmEntry();
-        frmPs.setVisible(true);
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+      FrmExit frmPsm = new FrmExit();
+        frmPsm.setVisible(true);
         dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
