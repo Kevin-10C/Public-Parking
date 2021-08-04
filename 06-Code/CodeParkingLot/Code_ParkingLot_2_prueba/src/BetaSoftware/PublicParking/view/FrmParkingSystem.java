@@ -50,6 +50,11 @@ public class FrmParkingSystem extends javax.swing.JFrame {
         jButton2.setText("Take out vehicle");
 
         jButton3.setText("Create new user");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -112,6 +117,14 @@ public class FrmParkingSystem extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        FrmColectionData frmCD = new FrmColectionData();
+        frmCD.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+FrmEntry frmPs = new FrmEntry();
+        frmPs.setVisible(true);
+        dispose();
     /**
      * @param args the command line arguments
      */
