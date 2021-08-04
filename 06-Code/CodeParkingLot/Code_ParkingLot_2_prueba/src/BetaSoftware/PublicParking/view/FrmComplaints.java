@@ -5,7 +5,7 @@
  */
 package BetaSoftware.PublicParking.view;
 
-import ec.edu.espe.parking.controller.TicketController;
+import BetaSoftware.PublicParking.controller.TicketController;
 import javax.swing.JOptionPane;
 
 /**

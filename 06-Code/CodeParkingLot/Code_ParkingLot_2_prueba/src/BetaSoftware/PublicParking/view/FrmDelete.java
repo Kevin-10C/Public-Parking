@@ -5,12 +5,12 @@
  */
 package BetaSoftware.PublicParking.view;
 
+import BetaSoftware.PublicParking.controller.TicketController;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.Mongo;
-import ec.edu.espe.parking.controller.TicketController;
 import java.awt.List;
 import java.net.UnknownHostException;
 import java.util.logging.Level;
@@ -88,7 +88,6 @@ public class FrmDelete extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
         try {
             Mongo mongo = new Mongo("localhost", 27017);
             dbMongo = mongo.getDB("Driver");

@@ -5,12 +5,12 @@
  */
 package BetaSoftware.PublicParking.view;
 
+import BetaSoftware.PublicParking.controller.TicketController;
+import BetaSoftware.PublicParking.model.Car;
+import BetaSoftware.PublicParking.model.Driver;
+import BetaSoftware.PublicParking.model.Observation;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import ec.edu.espe.parking.controller.TicketController;
-import ec.edu.espe.parking.model.Car;
-import ec.edu.espe.parking.model.Driver;
-import ec.edu.espe.parking.model.Observation;
 import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;
 

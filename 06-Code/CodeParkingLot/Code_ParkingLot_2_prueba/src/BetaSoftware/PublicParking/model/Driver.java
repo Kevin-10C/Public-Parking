@@ -11,40 +11,36 @@ package BetaSoftware.PublicParking.model;
  */
 public class Driver {
     
-    private String firtName;  
+    private String firstName;
     private String lastName;
     private String id;
-    private String age;
-    private String gender;
-    private String preference;
     private String code;
     private String phoneNumber;
+    private String gener;
+    private String age;
 
-    public Driver(String firtName, String lastName, String id, String age, String gender, String preference, String code, String phoneNumber) {
-        this.firtName = firtName;
+    public Driver(String firstName, String lastName, String id, String code, String phoneNumber, String gener, String age) {
+        this.firstName = firstName;
         this.lastName = lastName;
         this.id = id;
-        this.age = age;
-        this.gender = gender;
-        this.preference = preference;
         this.code = code;
         this.phoneNumber = phoneNumber;
-    }
-    
-    
-
-    /**
-     * @return the firtName
-     */
-    public String getFirtName() {
-        return firtName;
+        this.gener = gener;
+        this.age = age;
     }
 
     /**
-     * @param firtName the firtName to set
+     * @return the firstName
      */
-    public void setFirtName(String firtName) {
-        this.firtName = firtName;
+    public String getFirstName() {
+        return firstName;
+    }
+
+    /**
+     * @param firstName the firstName to set
+     */
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     /**
@@ -76,48 +72,6 @@ public class Driver {
     }
 
     /**
-     * @return the age
-     */
-    public String getAge() {
-        return age;
-    }
-
-    /**
-     * @param age the age to set
-     */
-    public void setAge(String age) {
-        this.age = age;
-    }
-
-    /**
-     * @return the gender
-     */
-    public String getGender() {
-        return gender;
-    }
-
-    /**
-     * @param gender the gender to set
-     */
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    /**
-     * @return the preference
-     */
-    public String getPreference() {
-        return preference;
-    }
-
-    /**
-     * @param preference the preference to set
-     */
-    public void setPreference(String preference) {
-        this.preference = preference;
-    }
-
-    /**
      * @return the code
      */
     public String getCode() {
@@ -144,13 +98,33 @@ public class Driver {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-    
-    
-    
-   
-    
 
+    /**
+     * @return the gener
+     */
+    public String getGener() {
+        return gener;
+    }
 
-    
-    
+    /**
+     * @param gener the gener to set
+     */
+    public void setGener(String gener) {
+        this.gener = gener;
+    }
+
+    /**
+     * @return the age
+     */
+    public String getAge() {
+        return age;
+    }
+
+    /**
+     * @param age the age to set
+     */
+    public void setAge(String age) {
+        this.age = age;
+    }
+
 }
