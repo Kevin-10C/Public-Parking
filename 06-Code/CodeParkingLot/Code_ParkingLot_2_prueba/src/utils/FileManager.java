@@ -179,6 +179,56 @@ private String driver;
         }
         return "";
     }
-    
-    
+  public static String findUser(String search) {
+
+        String entry = null;
+        try (FileReader file = new FileReader("./ UserDriver.json");
+                BufferedReader br = new BufferedReader(file)) {
+
+            String linea = br.readLine();
+
+            while (linea != null) {
+
+                StringTokenizer st = new StringTokenizer(linea);
+                while (st.hasMoreTokens()) {
+
+                    if (st.nextToken().equalsIgnoreCase(search)) {
+                        entry = linea.substring(0, 6);
+                    }
+                }
+                linea = br.readLine();
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return entry;
+    }  
+    public static String findUserExit(String search) {
+
+        String time = null;
+        try (FileReader file = new FileReader("./ UserDriverEntry.json");
+                BufferedReader br = new BufferedReader(file)) {
+
+            String linea = br.readLine();
+
+            while (linea != null) {
+
+                StringTokenizer st = new StringTokenizer(linea);
+                while (st.hasMoreTokens()) {
+
+                    if (st.nextToken().equalsIgnoreCase(search)) {
+                        time = linea.substring(7, 12);//811-54  347-62
+                    }
+                }
+                linea = br.readLine();
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return time;
+    }
 }
