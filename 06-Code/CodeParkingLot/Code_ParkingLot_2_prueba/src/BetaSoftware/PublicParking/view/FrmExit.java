@@ -5,6 +5,10 @@
  */
 package BetaSoftware.PublicParking.view;
 
+import BetaSoftware.PublicParking.controller.CarController;
+import BetaSoftware.PublicParking.controller.TicketController;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Eliana Cuaspa Beta-SoftwareTech ESPE-DCCO
@@ -112,10 +116,10 @@ public class FrmExit extends javax.swing.JFrame {
 
             float price = time * 0.05F;
 
-            JOptionPane.showMessageDialog(rootPane, "Hora de salida: " + departureTime
-                    + "\nEl total a pagar es: " + price + " dolares" + "\nGracias por venir");
+            JOptionPane.showMessageDialog(rootPane, "Departure time: " + departureTime
+                    + "\nThe total to pay is: " + price + " dollars" + "\nThanks for coming");
         } else {
-            JOptionPane.showMessageDialog(rootPane, "El codigo es incorrecto\nCrea un nuevo usuario");
+            JOptionPane.showMessageDialog(rootPane, "The code is wrong\nCreate a new user");
         }
         FrmParkingSystem frmPsy = new FrmParkingSystem();
         frmPsy.setVisible(true);

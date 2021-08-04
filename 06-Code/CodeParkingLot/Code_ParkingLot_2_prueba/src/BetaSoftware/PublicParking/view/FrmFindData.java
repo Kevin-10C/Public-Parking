@@ -5,6 +5,8 @@
  */
 package BetaSoftware.PublicParking.view;
 
+import BetaSoftware.PublicParking.controller.TicketController;
+
 /**
  *
  * @author Eliana Cuaspa Beta-SoftwareTech ESPE-DCCO
