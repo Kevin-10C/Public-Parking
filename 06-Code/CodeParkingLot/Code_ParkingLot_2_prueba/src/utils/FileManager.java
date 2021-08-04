@@ -27,6 +27,34 @@ public class FileManager implements Persistence {
 private String driver;
     private String description;
     private String cars;
+    
+public static String findUser(String search) {
+
+        String entry = null;
+        try (FileReader file = new FileReader("./ UserDriver.json");
+                BufferedReader br = new BufferedReader(file)) {
+
+            String linea = br.readLine();
+
+            while (linea != null) {
+
+                StringTokenizer st = new StringTokenizer(linea);
+                while (st.hasMoreTokens()) {
+
+                    if (st.nextToken().equalsIgnoreCase(search)) {
+                        entry = linea.substring(0, 6);
+                        
+                    }
+                }
+                linea = br.readLine();
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return entry;
+    }
 
     public FileManager(String driver, String description, String cars) {
         this.driver = driver;
