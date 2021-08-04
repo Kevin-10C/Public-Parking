@@ -104,7 +104,6 @@ public class FrmEntry extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
         FrmParkingSystem frmPS = new FrmParkingSystem();
         frmPS.setVisible(true);
         dispose();
