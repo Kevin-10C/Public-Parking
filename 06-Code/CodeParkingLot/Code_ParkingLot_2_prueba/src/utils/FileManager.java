@@ -14,6 +14,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,7 +30,6 @@ private String driver;
 
     @Override
     public boolean create() {
-        //TODO insert data in the file table
         File file = new File("./ DriverInformation.json");
         return true;
     }
@@ -126,4 +126,59 @@ private String driver;
         }
         return linea1;
     }
+    
+    public static String insert(String code) {
+        FileWriter add = null;
+        try {
+
+            File file = new File("./ UserDriver.json");
+            add = new FileWriter(file.getAbsoluteFile(), true);
+            BufferedWriter write = new BufferedWriter(add);
+            write.write("\n" + code);
+            write.close();
+            add.close();
+
+        } catch (IOException ex) {
+            Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                add.close();
+            } catch (IOException ex) {
+                Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return "";
+    }
+    public static String CarEntry(String search, String checkInTime) {
+        String entry = "";
+        try (FileReader file = new FileReader("./ UserDriver.json");
+                BufferedReader br = new BufferedReader(file)) {
+
+            String linea = br.readLine();
+
+            while (linea != null) {
+
+                StringTokenizer st = new StringTokenizer(linea);
+                while (st.hasMoreTokens()) {
+
+                    if (st.nextToken().equalsIgnoreCase(search)) {
+                        try (FileWriter fw = new FileWriter("./ UserDriverEntry.json", true);
+                                BufferedWriter bw = new BufferedWriter(fw);
+                                PrintWriter out = new PrintWriter(bw)) {
+                            out.write("\n" + search + " " + checkInTime);
+                        } catch (IOException e) {
+                        }
+                    }
+                }
+                linea = br.readLine();
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "";
+    }
+    
+    
 }
