@@ -10,7 +10,8 @@ package BetaSoftware.PublicParking.view;
  * @author Kevin Criollo BetaSoftwareTech ESPE-DCCO
  */
 public class FrmShowData extends javax.swing.JFrame {
-
+DBCollection tableMongo;
+    DB dbMongo;
     /**
      * Creates new form FrmShowData
      */
