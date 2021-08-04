@@ -5,6 +5,8 @@
  */
 package BetaSoftware.PublicParking.view;
 
+import BetaSoftware.PublicParking.controller.TicketController;
+
 /**
  *
  * @author Eliana Cuaspa Beta-SoftwareTech ESPE-DCCO
@@ -28,20 +30,25 @@ public class FrmDelete extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtCode = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Code");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtCode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtCodeActionPerformed(evt);
             }
         });
 
         jButton1.setText("Delete");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -51,7 +58,7 @@ public class FrmDelete extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCode, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(jButton1)
                 .addContainerGap(90, Short.MAX_VALUE))
@@ -62,7 +69,7 @@ public class FrmDelete extends javax.swing.JFrame {
                 .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
                 .addContainerGap(58, Short.MAX_VALUE))
         );
@@ -70,9 +77,40 @@ public class FrmDelete extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtCodeActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        try {
+            Mongo mongo = new Mongo("localhost", 27017);
+            dbMongo = mongo.getDB("Driver");
+            tableMongo = dbMongo.getCollection("InformationDriver");
+        } catch (UnknownHostException ex) {
+            Logger.getLogger(List.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+
+        String code = txtCode.getText();
+        String find = TicketController.findUser(code);
+        if (code.equals(find)) {
+
+            DBCollection col = dbMongo.getCollection("InformationDriver");
+            BasicDBObject filtro = new BasicDBObject();
+            filtro.put("Code", code);
+            DBCursor cur = col.find(filtro);
+
+            BasicDBObject document = new BasicDBObject();
+            document.put("Code", txtCode.getText());
+            tableMongo.remove(document);
+            JOptionPane.showMessageDialog(rootPane, "La informacion se borro con exito");
+
+            //JOptionPane.showMessageDialog(rootPane, "La informacion se borro con exito");
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Codigo no existente");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -112,6 +150,6 @@ public class FrmDelete extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtCode;
     // End of variables declaration//GEN-END:variables
 }
