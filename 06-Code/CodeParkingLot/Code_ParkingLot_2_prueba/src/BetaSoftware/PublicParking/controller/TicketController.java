@@ -5,6 +5,7 @@
  */
 package BetaSoftware.PublicParking.controller;
 
+import utils.FileManager;
 import utils.Persistence;
 
 /**
@@ -31,6 +32,27 @@ public class TicketController {
             }
         }
         return code;
+    }
+    
+    public void add(String code, String driver, String description, String cars){
+        
+        persistence = new DBManager(driver, description, cars);
+        persistence.create();
+        persistence.read(code, driver, cars, description);
+        
+        persistence1 = new FileManager(driver, description, cars);
+        persistence1.create();
+        persistence1.read(code, driver, cars, description);
+    }
+    
+    public void find(String searchString){
+        
+        persistence2 = new DBManager(getDriver(), getDescription(), getCars());
+        persistence2.find(searchString);
+        
+        persistence2 = new FileManager(getDriver(), getDescription(), getCars());
+        
+        
     }
 
     public TicketController(String driver, String description, String cars) {
