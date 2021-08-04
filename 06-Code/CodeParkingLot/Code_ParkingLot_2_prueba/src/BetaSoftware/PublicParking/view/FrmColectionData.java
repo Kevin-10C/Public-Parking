@@ -51,9 +51,9 @@ public class FrmColectionData extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         txtLicensePlate = new javax.swing.JTextField();
-        cmbBrand = new javax.swing.JComboBox<>();
-        cmbColor = new javax.swing.JComboBox<>();
-        cmbGuy = new javax.swing.JComboBox<>();
+        cmbBrand = new javax.swing.JComboBox<String>();
+        cmbColor = new javax.swing.JComboBox<String>();
+        cmbGuy = new javax.swing.JComboBox<String>();
         chkScrarches = new javax.swing.JCheckBox();
         chkRupture = new javax.swing.JCheckBox();
         chkCollision = new javax.swing.JCheckBox();
@@ -92,16 +92,16 @@ public class FrmColectionData extends javax.swing.JFrame {
 
         jLabel7.setText("Observation");
 
-        cmbBrand.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "To select", "Chevrolet", "Hydai", "Kia" }));
+        cmbBrand.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "To select", "Chevrolet", "Hydai", "Kia" }));
         cmbBrand.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbBrandActionPerformed(evt);
             }
         });
 
-        cmbColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "To select", "Black", "Red", "White", "Gray" }));
+        cmbColor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "To select", "Black", "Red", "White", "Gray" }));
 
-        cmbGuy.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "To select", "Truck", "Vehicule", "Pickup truck", "Motorcycle", "SUV" }));
+        cmbGuy.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "To select", "Truck", "Vehicule", "Pickup truck", "Motorcycle", "SUV" }));
 
         chkScrarches.setText("Scrarches");
 
@@ -146,6 +146,11 @@ public class FrmColectionData extends javax.swing.JFrame {
         });
 
         jButton2.setText("Cancel");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -286,7 +291,7 @@ public class FrmColectionData extends javax.swing.JFrame {
                     .addComponent(jLabel12)
                     .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
                 .addContainerGap(23, Short.MAX_VALUE))
@@ -359,12 +364,18 @@ public class FrmColectionData extends javax.swing.JFrame {
 
         ticket.insert(code);
 
-        JOptionPane.showMessageDialog(rootPane, "Tu informacion ha sido guardada correctamente, \ntu codigo de usuario es " + code);
+        JOptionPane.showMessageDialog(rootPane, "Your information has been saved correctly, \\ nyour user code is " + code);
 
         FrmParkingSystem frm = new FrmParkingSystem();
         frm.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        FrmParkingSystem frm = new FrmParkingSystem();
+        frm.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
