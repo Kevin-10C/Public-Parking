@@ -100,5 +100,26 @@ public class FileManager implements Persistence {
         }
         return h_entry;
     }
-    
+     public static String findCode(String code){
+        String linea1 = "";
+        try (FileReader file = new FileReader("./ DriverInformation.json");
+                BufferedReader br = new BufferedReader(file)) {
+
+            String linea = br.readLine();
+
+            while (linea != null) {
+
+                StringTokenizer st = new StringTokenizer(linea);
+                while (st.hasMoreTokens()) {
+
+                    if (st.nextToken().equalsIgnoreCase(code)) {
+                        linea = br.readLine();
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return linea1;
+    }
 }

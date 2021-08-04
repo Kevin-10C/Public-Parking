@@ -64,10 +64,12 @@ public class DBMaganer implements Persistence  {
 
     @Override
     public boolean update(String searchString, String data, String table) {
+        return true;
     }
 
     @Override
     public boolean delete(String searchString, String table) {
+        return true;
     }
 
     @Override
