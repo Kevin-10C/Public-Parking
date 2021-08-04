@@ -27,6 +27,8 @@ public class FileManager implements Persistence {
 private String driver;
     private String description;
     private String cars;
+    
+    
 
     @Override
     public boolean create() {
@@ -66,8 +68,27 @@ private String driver;
 
     @Override
     public boolean update(String searchString, String data, String table) {
-        
+        FileWriter add = null;
+        try {
+
+            File file = new File("./ Complaints.txt");
+            add = new FileWriter(file.getAbsoluteFile(), true);
+            BufferedWriter write = new BufferedWriter(add);
+            write.write("\n" + data);
+            write.close();
+            add.close();
+
+        } catch (IOException ex) {
+            Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                add.close();
+            } catch (IOException ex) {
+                Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         return true;
+        
     }
     
    @Override
@@ -178,6 +199,48 @@ private String driver;
             Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
         }
         return "";
+    }
+
+    /**
+     * @return the driver
+     */
+    public String getDriver() {
+        return driver;
+    }
+
+    /**
+     * @param driver the driver to set
+     */
+    public void setDriver(String driver) {
+        this.driver = driver;
+    }
+
+    /**
+     * @return the description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * @param description the description to set
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    /**
+     * @return the cars
+     */
+    public String getCars() {
+        return cars;
+    }
+
+    /**
+     * @param cars the cars to set
+     */
+    public void setCars(String cars) {
+        this.cars = cars;
     }
     
     

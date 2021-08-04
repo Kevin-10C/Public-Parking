@@ -5,6 +5,13 @@
  */
 package BetaSoftware.PublicParking.controller;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import utils.DBManager;
 import utils.FileManager;
 import utils.Persistence;
 
@@ -34,6 +41,29 @@ public class TicketController {
         return code;
     }
     
+    public static void Data(String data){
+        FileWriter add = null;
+        try {
+
+            File file = new File("./ Complaints.txt");
+            add = new FileWriter(file.getAbsoluteFile(), true);
+            BufferedWriter write = new BufferedWriter(add);
+            write.write("\n" + data);
+            write.close();
+            add.close();
+
+        } catch (IOException ex) {
+            Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                add.close();
+            } catch (IOException ex) {
+                Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+    }
+    
     public void add(String code, String driver, String description, String cars){
         
         persistence = new DBManager(driver, description, cars);
@@ -54,6 +84,7 @@ public class TicketController {
         
         
     }
+    
 
     public void insert(String code){
         FileManager.insert(code);

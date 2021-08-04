@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  *
  * @author Eliana Cuaspa Beta-SoftwareTech ESPE-DCCO
  */
-public class DBMaganer implements Persistence  {
+public class DBManager implements Persistence  {
     
     DB dbMongo;
     DBCollection tableMongo;
@@ -27,7 +27,7 @@ public class DBMaganer implements Persistence  {
     private String description;
     private String cars;
 
-    public DBMaganer(String driver, String description, String cars) {
+    public DBManager(String driver, String description, String cars) {
         this.driver = driver;
         this.description = description;
         this.cars = cars;
