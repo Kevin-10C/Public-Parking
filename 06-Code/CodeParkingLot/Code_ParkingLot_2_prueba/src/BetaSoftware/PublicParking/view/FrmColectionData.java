@@ -5,6 +5,13 @@
  */
 package BetaSoftware.PublicParking.view;
 
+import BetaSoftware.PublicParking.controller.TicketController;
+import BetaSoftware.PublicParking.model.Car;
+import BetaSoftware.PublicParking.model.Driver;
+import BetaSoftware.PublicParking.model.Observation;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;
 
 /**
@@ -215,9 +222,9 @@ public class FrmColectionData extends javax.swing.JFrame {
                         .addGap(171, 171, 171)
                         .addComponent(jLabel8))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(111, 111, 111)
+                        .addGap(106, 106, 106)
                         .addComponent(jButton1)
-                        .addGap(86, 86, 86)
+                        .addGap(91, 91, 91)
                         .addComponent(jButton2)))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
@@ -299,6 +306,7 @@ public class FrmColectionData extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String generButton = "";
+        GsonBuilder gsonBuilder = new GsonBuilder();
         boolean rupture = false;
         boolean collision = false;
         boolean scratches = false;
@@ -317,6 +325,45 @@ public class FrmColectionData extends javax.swing.JFrame {
             if (rdbMale.isSelected()){
                 generButton = "Male";
             }
+            
+            Gson gson = gsonBuilder.create();
+
+        String ruptureButton = chkRupture.getText();
+        String collisionButton = chkCollision.getText();
+        String scratchesButton = chkScrarches.getText();
+
+        String licensePlate = txtLicensePlate.getText();
+        String mark = cmbBrand.getSelectedItem().toString();
+        String color = cmbColor.getSelectedItem().toString();
+        String type = cmbGuy.getSelectedItem().toString();
+        String description = txtDescription.getText();
+
+        String code = TicketController.CodeNumber();
+        String firstName = txtFirstName.getText();
+        String lastName = txtLastName.getText();
+        String id = txtId.getText();
+        String phoneNumber = txtPhoneNumber.getText();
+        String gener = generButton;
+        String age = spnAge.getValue().toString();
+
+        Driver drivers = new Driver(firstName, lastName, id, code, phoneNumber, gener, age);
+        Observation observations = new Observation(scratches, rupture, collision);
+        Car car = new Car(mark, licensePlate, color, observations);
+
+        String driver = gson.toJson(drivers);
+        String cars = gson.toJson(car);
+
+        TicketController ticket = new TicketController(driver, description, cars);
+
+        ticket.add(code, driver, cars, description);
+
+        ticket.insert(code);
+
+        JOptionPane.showMessageDialog(rootPane, "Tu informacion ha sido guardada correctamente, \ntu codigo de usuario es " + code);
+
+        FrmParkingSystem frm = new FrmParkingSystem();
+        frm.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
