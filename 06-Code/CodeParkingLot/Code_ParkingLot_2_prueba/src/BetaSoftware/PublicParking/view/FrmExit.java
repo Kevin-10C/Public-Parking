@@ -40,6 +40,17 @@ public class FrmExit extends javax.swing.JFrame {
         jButton1.setText("Close");
 
         jButton2.setText("Exit");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        pswSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pswSearchActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -85,6 +96,31 @@ public class FrmExit extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void pswSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pswSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pswSearchActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String search = pswSearch.getText();
+
+        if (search.equals(TicketController.findUser(search))) {
+
+            String departureTime = CarController.DepartureTime();
+            String checkInTime = TicketController.CarExit(search);
+            Long time = CarController.calculeTime(checkInTime, departureTime);
+
+            float price = time * 0.05F;
+
+            JOptionPane.showMessageDialog(rootPane, "Hora de salida: " + departureTime
+                    + "\nEl total a pagar es: " + price + " dolares" + "\nGracias por venir");
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "El codigo es incorrecto\nCrea un nuevo usuario");
+        }
+        FrmParkingSystem frmPsy = new FrmParkingSystem();
+        frmPsy.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
