@@ -69,14 +69,23 @@ public class DBMaganer implements Persistence  {
 
     @Override
     public boolean delete(String searchString, String table) {
-        return true;
+        DBCollection col = dbMongo.getCollection("InformationDriver");
+        BasicDBObject filtro = new BasicDBObject();
+        filtro.put("Code", searchString);
+        DBCursor cur = col.find(filtro);
+        while (cur.hasNext()) {
+            BasicDBObject document = new BasicDBObject();
+            document.put("Code", searchString);
+            tableMongo.remove(document);
+        }
+        return true; 
     }
 
     @Override
     public String find(String searchString) {
-        //TODO find a record in the database collection file according to searchString
+       
         DBCursor cursor = tableMongo.find();
-        //String data = cursor.toString();
+        
         String data = "";
         while (cursor.hasNext()) {
             data = cursor.toString();
