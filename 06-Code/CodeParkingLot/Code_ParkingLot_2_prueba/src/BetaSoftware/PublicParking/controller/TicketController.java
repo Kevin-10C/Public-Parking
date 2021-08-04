@@ -55,6 +55,34 @@ public class TicketController {
         
     }
 
+    public void insert(String code){
+        FileManager.insert(code);
+    }
+    
+    public static String findUser(String search){
+        String code;
+        code = FileManager.findUser(search);
+        return code;
+    }
+    
+    public static String CarEntry(String search, String checkInTime){
+        String time;
+        time = FileManager.CarEntry(search, checkInTime);
+        return "";
+    }
+     public static String CarExit(String search){
+        String time;
+        time = FileManager.findUserExit(search);
+        return time;
+    }
+    
+    public static String findCode(String code){
+        String code1;
+        code1 = FileManager.findCode(code);
+        return code1;
+    }
+    
+    
     public TicketController(String driver, String description, String cars) {
         this.driver = driver;
         this.description = description;
