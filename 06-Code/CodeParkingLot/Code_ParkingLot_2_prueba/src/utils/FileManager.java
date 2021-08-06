@@ -7,6 +7,7 @@ package utils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import java.awt.List;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -15,9 +16,13 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -90,7 +95,40 @@ public class FileManager implements Persistence {
 
     @Override
     public boolean delete(String searchString, String table) {
-        return true;
+        try {
+            String ruta = "DriverInformation.json";
+            File archivo = new File(ruta);
+            String texto;
+            String[] a;
+            String pre = searchString;
+            FileReader f = null;
+            try {
+                f = new FileReader(archivo);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            FileWriter f1 = null;
+            try {
+                f1 = new FileWriter(archivo);
+            } catch (IOException ex) {
+                Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            BufferedReader b = new BufferedReader(f);
+            PrintWriter out = new PrintWriter(new BufferedWriter(f1));
+            while ((texto = b.readLine()) != null) {
+                a = texto.split("==");
+                String h = a[0];
+                
+                if (h.equals(pre)) {
+                    out.println("");
+                    
+                    f1.close();
+                }
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 
     @Override

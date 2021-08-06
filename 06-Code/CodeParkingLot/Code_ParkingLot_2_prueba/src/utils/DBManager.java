@@ -52,6 +52,11 @@ public class DBManager implements Persistence {
 
     @Override
     public boolean update(String data) {
+        BasicDBObject document = new BasicDBObject();
+        document.put("Driver", data);
+        BasicDBObject documentoNuevo = new BasicDBObject();
+        documentoNuevo.put("Driver", data);
+        tableMongo.findAndModify(document, documentoNuevo);
         return true;
     }
 
