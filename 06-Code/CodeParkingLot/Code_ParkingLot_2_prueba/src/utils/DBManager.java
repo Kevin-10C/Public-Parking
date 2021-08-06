@@ -30,7 +30,7 @@ public class DBManager implements Persistence {
     @Override
     public boolean create() {
         try {
-            Mongo mongo = new Mongo("localhost", 27017);
+            Mongo mongo = new Mongo("Localhost", 27017);
             dbMongo = mongo.getDB("Driver");
             tableMongo = dbMongo.getCollection("InformationDriver");
         } catch (UnknownHostException ex) {
@@ -52,6 +52,11 @@ public class DBManager implements Persistence {
 
     @Override
     public boolean update(String data) {
+        BasicDBObject document = new BasicDBObject();
+        document.put("Driver", data);
+        BasicDBObject documentoNuevo = new BasicDBObject();
+        documentoNuevo.put("Driver", data);
+        tableMongo.findAndModify(document, documentoNuevo);
         return true;
     }
 
