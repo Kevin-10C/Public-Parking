@@ -16,6 +16,7 @@ import java.awt.List;
 import java.net.UnknownHostException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -320,6 +321,11 @@ public class FrmTicketExit extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(204, 204, 204));
         jButton2.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jButton2.setText("Pay");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setText("________________________________________________________");
@@ -563,6 +569,14 @@ public class FrmTicketExit extends javax.swing.JFrame {
         frmPsy.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:}
+        JOptionPane.showMessageDialog(rootPane, "Thank you for visiting our parking lot" + "\nCome back soon");
+        FrmUserParkingSystem frmPsy = new FrmUserParkingSystem();
+        frmPsy.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

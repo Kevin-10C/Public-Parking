@@ -3,23 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/PublicParking_Proyect/src/utils/DBManager.java</file>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/PublicParking_Proyect/src/ec/edu/espe/parking/view/FrmUserParkingSystem.java</file>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/PublicParking_Proyect/src/utils/FileManager.java</file>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/PublicParking_Proyect/src/ec/edu/espe/parking/controller/CarController.java</file>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/PublicParking_Proyect/src/ec/edu/espe/parking/view/FrmAdminParkingSystem.java</file>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/PublicParking_Proyect/src/ec/edu/espe/parking/view/FrmComplaints.java</file>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/PublicParking_Proyect/src/ec/edu/espe/parking/view/FrmDelete.java</file>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/PublicParking_Proyect/src/ec/edu/espe/parking/view/FrmTicketEntry.java</file>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/PublicParking_Proyect/src/ec/edu/espe/parking/model/Car.java</file>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/PublicParking_Proyect/src/ec/edu/espe/parking/view/FrmExit.java</file>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/PublicParking_Proyect/src/ec/edu/espe/parking/controller/InvoiceController.java</file>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/PublicParking_Proyect/src/ec/edu/espe/parking/view/FrmCollectionData.java</file>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/PublicParking_Proyect/src/ec/edu/espe/parking/controller/TicketController.java</file>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/PublicParking_Proyect/src/ec/edu/espe/parking/view/FrmTicketExit.java</file>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/PublicParking_Proyect/src/utils/Persistence.java</file>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/PublicParking_Proyect/src/ec/edu/espe/parking/model/Driver.java</file>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/PublicParking_Proyect/src/ec/edu/espe/parking/view/FrmAdministratorUserLogin.java</file>
+            <file>file:/C:/Users/DELL/Desktop/Proyecto_Beta_Software/Public-Parking/06-Code/CodeParkingLot/PublicParking_Proyect/src/ec/edu/espe/parking/view/FrmTicketExit.java</file>
         </group>
     </open-files>
 </project-private>
