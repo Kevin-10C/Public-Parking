@@ -11,7 +11,9 @@ import ec.edu.espe.parking.controller.CarController;
 import ec.edu.espe.parking.controller.InvoiceController;
 import ec.edu.espe.parking.controller.TicketController;
 import ec.edu.espe.parking.model.Observation;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import utils.DBManager;
 import utils.Persistence;
@@ -37,7 +39,7 @@ public class FrmCollectionData extends javax.swing.JFrame {
         num.setMinimum(0);
         spnAge.setModel(num);
     }
-
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -93,6 +95,11 @@ public class FrmCollectionData extends javax.swing.JFrame {
         txtPhoneNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPhoneNumberActionPerformed(evt);
+            }
+        });
+        txtPhoneNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPhoneNumberKeyTyped(evt);
             }
         });
 
@@ -294,9 +301,7 @@ public class FrmCollectionData extends javax.swing.JFrame {
                                     .addGroup(dskPanelLayout.createSequentialGroup()
                                         .addGap(28, 28, 28)
                                         .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dskPanelLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel11)))
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(dskPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(spnAge)
@@ -520,10 +525,19 @@ public class FrmCollectionData extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        FrmUserParkingSystem frm = new FrmUserParkingSystem();
+        FrmUser frm = new FrmUser();
         frm.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void txtPhoneNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPhoneNumberKeyTyped
+        // TODO add your handling code here:
+        if(txtPhoneNumber.getText().length() >= 9){
+            evt.consume();
+            //Toolkit.getDefaultToolkit().beep();
+            JOptionPane.showMessageDialog(rootPane, "No funca");
+        }
+    }//GEN-LAST:event_txtPhoneNumberKeyTyped
 
     /**
      * @param args the command line arguments

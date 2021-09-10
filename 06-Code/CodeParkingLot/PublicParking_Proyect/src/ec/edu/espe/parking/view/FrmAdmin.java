@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Bryan Chiliquinga Beta_Software ESPE-DCCO
  */
-public class FrmAdminParkingSystem extends javax.swing.JFrame {
+public class FrmAdmin extends javax.swing.JFrame {
     
     DB dbMongo;
     DBCollection tableMongo;
@@ -28,7 +28,7 @@ public class FrmAdminParkingSystem extends javax.swing.JFrame {
     /**
      * Creates new form FrmAdminSystem
      */
-    public FrmAdminParkingSystem() {
+    public FrmAdmin() {
         initComponents();
     }
 
@@ -50,6 +50,7 @@ public class FrmAdminParkingSystem extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblCar = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
@@ -119,12 +120,20 @@ public class FrmAdminParkingSystem extends javax.swing.JFrame {
         jLabel2.setText("                                                                Parking Beta-Software");
         jLabel2.setOpaque(true);
 
+        jButton2.setText("< To return");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         dskPanelAdmin.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         dskPanelAdmin.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         dskPanelAdmin.setLayer(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
         dskPanelAdmin.setLayer(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
         dskPanelAdmin.setLayer(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         dskPanelAdmin.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dskPanelAdmin.setLayer(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout dskPanelAdminLayout = new javax.swing.GroupLayout(dskPanelAdmin);
         dskPanelAdmin.setLayout(dskPanelAdminLayout);
@@ -132,13 +141,15 @@ public class FrmAdminParkingSystem extends javax.swing.JFrame {
             dskPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dskPanelAdminLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addGroup(dskPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(dskPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane2)))
+                .addGroup(dskPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(dskPanelAdminLayout.createSequentialGroup()
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING))
                 .addContainerGap(21, Short.MAX_VALUE))
             .addGroup(dskPanelAdminLayout.createSequentialGroup()
                 .addContainerGap()
@@ -159,7 +170,9 @@ public class FrmAdminParkingSystem extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(13, 13, 13)
-                .addComponent(jButton1)
+                .addGroup(dskPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addGap(15, 15, 15))
         );
 
@@ -298,6 +311,13 @@ public class FrmAdminParkingSystem extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        FrmAdministratorUserLoginSystem frm = new FrmAdministratorUserLoginSystem();
+        frm.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -315,21 +335,23 @@ public class FrmAdminParkingSystem extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmAdminParkingSystem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmAdminParkingSystem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmAdminParkingSystem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmAdminParkingSystem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmAdminParkingSystem().setVisible(true);
+                new FrmAdmin().setVisible(true);
             }
         });
     }
@@ -337,6 +359,7 @@ public class FrmAdminParkingSystem extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane dskPanelAdmin;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

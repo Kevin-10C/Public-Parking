@@ -518,7 +518,7 @@ public class FrmTicketEntry extends javax.swing.JFrame {
 
         JOptionPane.showMessageDialog(rootPane, "Your vehicle entered successfully");
 
-        FrmUserParkingSystem frmPsy = new FrmUserParkingSystem();
+        FrmUser frmPsy = new FrmUser();
         frmPsy.setVisible(true);
         dispose();
 
