@@ -113,6 +113,11 @@ public class FrmCollectionData extends javax.swing.JFrame {
                 txtIdActionPerformed(evt);
             }
         });
+        txtId.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIdKeyTyped(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -534,10 +539,19 @@ public class FrmCollectionData extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(txtPhoneNumber.getText().length() >= 9){
             evt.consume();
-            //Toolkit.getDefaultToolkit().beep();
-            JOptionPane.showMessageDialog(rootPane, "No funca");
+            Toolkit.getDefaultToolkit().beep();
+            //JOptionPane.showMessageDialog(rootPane, "No funca");
         }
     }//GEN-LAST:event_txtPhoneNumberKeyTyped
+
+    private void txtIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdKeyTyped
+        // TODO add your handling code here:
+        if(txtId.getText().length() >= 9){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            //JOptionPane.showMessageDialog(rootPane, "No funca");
+        }
+    }//GEN-LAST:event_txtIdKeyTyped
 
     /**
      * @param args the command line arguments
